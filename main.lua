@@ -245,7 +245,7 @@ function main()
   local opt = cmd:parse(arg)
 
   params = {batch_size=100,
-            seq_length=50, -- おそらくこれは、教師データの数式の長さの最大値
+            seq_length=50, -- おそらくこれは、教師データの数式の長さの最大値。rnnの個数でもある。
             layers=2,
             rnn_size=400,
             init_weight=0.08,
