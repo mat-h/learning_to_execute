@@ -136,7 +136,7 @@ function fp(state, paramx_)
     state.count = state.count + tmp[2]
     state.normal = state.normal + tmp[3]
   end
-  state.acc = state.count / state.normal
+  state.acc = state.count / state.normal -- stateを更新している。これにより、showの結果が変わる
   copy_table(model.start_s, model.s[params.seq_length])
 end
 
@@ -166,7 +166,7 @@ end
 
 function eval_training(paramx_)
   fp(state_train, paramx_)
-  bp(state_train)
+  bp(state_train) -- ココ以外でbpは呼ばれない
   return 0, paramdx
 end
 
@@ -175,6 +175,15 @@ function run_test(state)
   for i = 1, (state.data.x:size(1) - 1) / params.seq_length do
     fp(state, paramx)
   end
+end
+
+function desc_accs(states)
+  local accs = ""
+  for _, state in pairs(states) do
+    accs = string.format('%s, %s acc.=%.2f%%',
+      accs, state.name, 100.0 * state.acc)
+  end
+  return accs
 end
 
 function show_predictions(state)
@@ -236,7 +245,7 @@ function main()
   local opt = cmd:parse(arg)
 
   params = {batch_size=100,
-            seq_length=50,
+            seq_length=50, -- おそらくこれは、教師データの数式の長さの最大値
             layers=2,
             rnn_size=400,
             init_weight=0.08,
@@ -291,26 +300,21 @@ function main()
       state_train.seed = state_train.seed + 1
       load_data(state_train)
     end
-    optim.adam(eval_training, paramx, {learningRate=params.learningRate}, {})
+    optim.adam(eval_training, paramx, {learningRate=params.learningRate}, {}) -- ここで学習(bp)を実行している
     total_cases = total_cases + params.seq_length * params.batch_size
     epoch = ceil(step / epoch_size)
     if step % ceil(epoch_size / 2) == 10 then
       cps = floor(total_cases / torch.toc(start_time))
       run_test(state_val)
       run_test(state_test)
-      local accs = ""
-      for _, state in pairs(states) do
-        accs = string.format('%s, %s acc.=%.2f%%',
-          accs, state.name, 100.0 * state.acc)
-      end
-      print('epoch=' .. epoch .. accs ..
+      print('epoch=' .. epoch .. desc_accs(states) ..
         ', current length=' .. params.current_length ..
         ', current nesting=' .. params.current_nesting ..
         ', characters per sec.=' .. cps ..
         ', learning rate=' .. string.format("%.3f", params.learningRate))
       if (state_val.acc > params.target_accuracy) or
         (#train_accs >= 5 and
-        train_accs[#train_accs - 4] > state_train.acc) then
+        train_accs[#train_accs - 4] > state_train.acc) then -- これの意味は？
         if not make_harder() then
           params.learningRate = params.learningRate * 0.8
         end
