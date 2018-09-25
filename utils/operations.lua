@@ -57,7 +57,7 @@ function vars_opr(hardness)
   end
   return code, expr, eval
 end
-
+--[[
 function small_loop_opr(hardness)
   local r_small = hardness()
   local var = variablesManager:get_unused_variables(1)
@@ -101,3 +101,4 @@ function ifstat_opr(hardness)
                              c.expr, a.expr, name, b.expr, d.expr)
   return {}, expr, output
 end
+]]--
