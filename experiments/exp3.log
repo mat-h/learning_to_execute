@@ -1,0 +1,1981 @@
+[hal@Nemesis learning_to_execute]$ th main.lua 
+Torch 7.0  Copyright (C) 2001-2011 Idiap, NEC Labs, NYU	
+Network parameters:	{	
+  max_grad_norm : 5	
+  seq_length : 50	
+  batch_size : 100	
+  learningRate : 0.5	
+  rnn_size : 400	
+  target_nesting : 3	
+  target_accuracy : 0.95	
+  init_weight : 0.08	
+  target_length : 6	
+  current_nesting : 1	
+  layers : 2	
+  current_length : 1	
+  gpuidx : 1	
+}	
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     print((10+5))
+	Target:      15.
+	-----------------------------
+	Input:	     print((817224*2))
+	Target:      1634448.
+	-----------------------------
+	Input:	     e=10;
+		     print((e-2))
+	Target:      8.
+	-----------------------------
+
+Few exemplary newly generated samples from the Validation dataset:
+	Input:	     print(1)
+	Target:      1.
+	-----------------------------
+	Input:	     print((2*3))
+	Target:      6.
+	-----------------------------
+	Input:	     print((4*3))
+	Target:      12.
+	-----------------------------
+
+Few exemplary newly generated samples from the Test dataset:
+	Input:	     b=(876140-491264);
+		     print((b+109722))
+	Target:      494598.
+	-----------------------------
+	Input:	     e=589573;
+		     a=(e+474628);
+		     print((a+310043))
+	Target:      1374244.
+	-----------------------------
+	Input:	     c=(845290+764660);
+		     j=945343;
+		     print((j-(c-364119)))
+	Target:      -300488.
+	-----------------------------
+
+Creating a RNN LSTM network.	Starting training.	epoch=1, Training acc.=11.55%, Validation acc.=3.91%, Test acc.=7.67%, current length=1, current nesting=1, characters per sec.=9050, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((3*2))
+	Target:      6.
+	Prediction:  00
+	-----------------------------
+	Input:	     print((2-2))
+	Target:      0.
+	Prediction:  00
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	Prediction:  00
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((2*1))
+	Target:      2.
+	Prediction:  00
+	-----------------------------
+	Input:	     print((1*3))
+	Target:      3.
+	Prediction:  00
+	-----------------------------
+	Input:	     print((1*2))
+	Target:      2.
+	Prediction:  00
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print(((889404*12)-327905))
+	Target:      10344943.
+	Prediction:  000000000
+	-----------------------------
+	Input:	     j=310416;
+		     h=(j+198767);
+		     print((h-470642))
+	Target:      38541.
+	Prediction:  000000
+	-----------------------------
+	Input:	     f=919267;
+		     print(((f+387761)+658865))
+	Target:      1965893.
+	Prediction:  00000000
+	-----------------------------
+epoch=1, Training acc.=10.73%, Validation acc.=13.42%, Test acc.=10.90%, current length=1, current nesting=1, characters per sec.=10179, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print(2515)
+	Target:      2515.
+	Prediction:  11111
+	-----------------------------
+	Input:	     i=8;
+		     print((i+1))
+	Target:      9.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((7+6))
+	Target:      13.
+	Prediction:  111
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     e=8;
+		     print((e+6))
+	Target:      14.
+	Prediction:  111
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((3+4))
+	Target:      7.
+	Prediction:  11
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print(((468380-352202)*12))
+	Target:      1394136.
+	Prediction:  11111111
+	-----------------------------
+	Input:	     c=312750;
+		     print(((c-283165)-481735))
+	Target:      -452150.
+	Prediction:  11111111
+	-----------------------------
+	Input:	     print((7*((963105-451610)*18)))
+	Target:      64448370.
+	Prediction:  111111111
+	-----------------------------
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     print((3*1))
+	Target:      3.
+	-----------------------------
+	Input:	     b=2;
+		     print((b+7))
+	Target:      9.
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	-----------------------------
+
+epoch=2, Training acc.=11.45%, Validation acc.=17.39%, Test acc.=12.40%, current length=1, current nesting=1, characters per sec.=7345, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((4*4))
+	Target:      16.
+	Prediction:  222
+	-----------------------------
+	Input:	     c=8;
+		     print((c-6626))
+	Target:      -6618.
+	Prediction:  2.2222
+	-----------------------------
+	Input:	     g=244873;
+		     print((g-6))
+	Target:      244867.
+	Prediction:  -2222.2
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     c=4;
+		     print((c-8))
+	Target:      -4.
+	Prediction:  22.
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  2.
+	-----------------------------
+	Input:	     print((3*8))
+	Target:      24.
+	Prediction:  2-.
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     e=54553;
+		     h=166025;
+		     d=440480;
+		     print((d+(h-(e+614694))))
+	Target:      -62742.
+	Prediction:  222222.
+	-----------------------------
+	Input:	     print((876465*11))
+	Target:      9641115.
+	Prediction:  2.2.22.2
+	-----------------------------
+	Input:	     j=941299;
+		     print((19948+((j-359950)-487175)))
+	Target:      114122.
+	Prediction:  --2..22
+	-----------------------------
+epoch=2, Training acc.=12.58%, Validation acc.=10.23%, Test acc.=10.26%, current length=1, current nesting=1, characters per sec.=10204, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     h=6;
+		     print((h+6))
+	Target:      12.
+	Prediction:  111
+	-----------------------------
+	Input:	     print((4+5))
+	Target:      9.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((5*2))
+	Target:      10.
+	Prediction:  111
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  19
+	-----------------------------
+	Input:	     f=7;
+		     print((f-5))
+	Target:      2.
+	Prediction:  15
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  31
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print(((477159+884238)-411082))
+	Target:      950315.
+	Prediction:  4123332
+	-----------------------------
+	Input:	     b=949496;
+		     c=771963;
+		     g=(c+(b+617069));
+		     print((g+637246))
+	Target:      2975774.
+	Prediction:  71172249
+	-----------------------------
+	Input:	     b=715644;
+		     print((b+(214838-276080)))
+	Target:      654402.
+	Prediction:  1312222
+	-----------------------------
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     print((4-7))
+	Target:      -3.
+	-----------------------------
+	Input:	     g=3;
+		     print((g+4))
+	Target:      7.
+	-----------------------------
+	Input:	     print((5*3))
+	Target:      15.
+	-----------------------------
+
+epoch=3, Training acc.=12.73%, Validation acc.=13.87%, Test acc.=11.71%, current length=1, current nesting=1, characters per sec.=7341, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((2+3))
+	Target:      5.
+	Prediction:  60
+	-----------------------------
+	Input:	     print((2+3))
+	Target:      5.
+	Prediction:  10
+	-----------------------------
+	Input:	     print((6+2))
+	Target:      8.
+	Prediction:  0.
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((5+2))
+	Target:      7.
+	Prediction:  10
+	-----------------------------
+	Input:	     print((1*3))
+	Target:      3.
+	Prediction:  16
+	-----------------------------
+	Input:	     print((2*2))
+	Target:      4.
+	Prediction:  0.
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print((((654133+274754)-814475)*8))
+	Target:      915296.
+	Prediction:  1.01...
+	-----------------------------
+	Input:	     b=(724198-201775);
+		     print((b-875388))
+	Target:      -352965.
+	Prediction:  10100000
+	-----------------------------
+	Input:	     f=(388320+411206);
+		     print((23*(f-74111)))
+	Target:      16684545.
+	Prediction:  101666060
+	-----------------------------
+epoch=3, Training acc.=15.38%, Validation acc.=6.68%, Test acc.=9.04%, current length=1, current nesting=1, characters per sec.=10287, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     b=9;
+		     print(((b-5)*2))
+	Target:      8.
+	Prediction:  22
+	-----------------------------
+	Input:	     print((8-1))
+	Target:      7.
+	Prediction:  72
+	-----------------------------
+	Input:	     print((7+6))
+	Target:      13.
+	Prediction:  277
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  27
+	-----------------------------
+	Input:	     print((6-6))
+	Target:      0.
+	Prediction:  22
+	-----------------------------
+	Input:	     print((4+4))
+	Target:      8.
+	Prediction:  22
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print((150193*1))
+	Target:      150193.
+	Prediction:  2222727
+	-----------------------------
+	Input:	     g=(807072-499118);
+		     print((g+276267))
+	Target:      584221.
+	Prediction:  2772222
+	-----------------------------
+	Input:	     d=(128924-654303);
+		     print((d+242644))
+	Target:      -282735.
+	Prediction:  22222272
+	-----------------------------
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     print((3*2))
+	Target:      6.
+	-----------------------------
+	Input:	     print((3-4))
+	Target:      -1.
+	-----------------------------
+	Input:	     c=6;
+		     print((c+7))
+	Target:      13.
+	-----------------------------
+
+epoch=4, Training acc.=17.02%, Validation acc.=27.92%, Test acc.=8.33%, current length=1, current nesting=1, characters per sec.=7344, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print(4755)
+	Target:      4755.
+	Prediction:  =....
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  ;;
+	-----------------------------
+	Input:	     b=2;
+		     print((b+5))
+	Target:      7.
+	Prediction:  ==
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     i=4;
+		     print((i+2))
+	Target:      6.
+	Prediction:  =.
+	-----------------------------
+	Input:	     print((1*2))
+	Target:      2.
+	Prediction:  ..
+	-----------------------------
+	Input:	     b=3;
+		     print((b+5))
+	Target:      8.
+	Prediction:  ..
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print((554020+((402355+917005)+597072)))
+	Target:      2470452.
+	Prediction:  ;.;....=
+	-----------------------------
+	Input:	     a=729947;
+		     print((1*(a+570760)))
+	Target:      1300707.
+	Prediction:  ;....=..
+	-----------------------------
+	Input:	     print(((570093+722314)+522622))
+	Target:      1815029.
+	Prediction:  ...;....
+	-----------------------------
+epoch=4, Training acc.=13.80%, Validation acc.=4.33%, Test acc.=8.55%, current length=1, current nesting=1, characters per sec.=10290, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     e=4;
+		     print((3*((e+3)*1)))
+	Target:      21.
+	Prediction:  888
+	-----------------------------
+	Input:	     h=7;
+		     print((h+3))
+	Target:      10.
+	Prediction:  288
+	-----------------------------
+	Input:	     d=9;
+		     h=7;
+		     print((3*(h-(d+3))))
+	Target:      -15.
+	Prediction:  3488
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((1-6))
+	Target:      -5.
+	Prediction:  -33
+	-----------------------------
+	Input:	     print((3*8))
+	Target:      24.
+	Prediction:  828
+	-----------------------------
+	Input:	     print((2*4))
+	Target:      8.
+	Prediction:  83
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     j=34698;
+		     print((j-861918))
+	Target:      -827220.
+	Prediction:  23388888
+	-----------------------------
+	Input:	     c=51791;
+		     print((1*(c+224635)))
+	Target:      276426.
+	Prediction:  3988888
+	-----------------------------
+	Input:	     f=262426;
+		     c=886107;
+		     print((5*(c+(f-771797))))
+	Target:      1883680.
+	Prediction:  48248948
+	-----------------------------
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     print((1+3))
+	Target:      4.
+	-----------------------------
+	Input:	     a=5;
+		     print((a+4))
+	Target:      9.
+	-----------------------------
+	Input:	     print((9-91262))
+	Target:      -91253.
+	-----------------------------
+
+epoch=5, Training acc.=13.77%, Validation acc.=26.25%, Test acc.=11.99%, current length=1, current nesting=1, characters per sec.=7307, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((902920-7))
+	Target:      902913.
+	Prediction:  992299.
+	-----------------------------
+	Input:	     h=6;
+		     print((h+10))
+	Target:      16.
+	Prediction:  99.
+	-----------------------------
+	Input:	     c=8;
+		     print((c+3))
+	Target:      11.
+	Prediction:  99.
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((6+7))
+	Target:      13.
+	Prediction:  9.9
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  -.
+	-----------------------------
+	Input:	     e=10;
+		     print((e-4))
+	Target:      6.
+	Prediction:  99
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print(((22*881234)+195420))
+	Target:      19582568.
+	Prediction:  9........
+	-----------------------------
+	Input:	     i=(807470+994187);
+		     print((i-564172))
+	Target:      1237485.
+	Prediction:  2.2.2.92
+	-----------------------------
+	Input:	     f=102263;
+		     b=(19*(f+872425));
+		     print((b-14665))
+	Target:      18504407.
+	Prediction:  26..9..99
+	-----------------------------
+epoch=5, Training acc.=17.31%, Validation acc.=24.54%, Test acc.=13.04%, current length=1, current nesting=1, characters per sec.=10180, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     i=2;
+		     print((i+5))
+	Target:      7.
+	Prediction:  ..
+	-----------------------------
+	Input:	     g=9;
+		     print((g-7))
+	Target:      2.
+	Prediction:  27
+	-----------------------------
+	Input:	     d=6;
+		     print((d+408186))
+	Target:      408192.
+	Prediction:  36.....
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((4-5))
+	Target:      -1.
+	Prediction:  117
+	-----------------------------
+	Input:	     j=2;
+		     print((j+7))
+	Target:      9.
+	Prediction:  -7
+	-----------------------------
+	Input:	     print((4*10))
+	Target:      40.
+	Prediction:  1.3
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     e=(348551-170310);
+		     print((e-756362))
+	Target:      -578121.
+	Prediction:  16...285
+	-----------------------------
+	Input:	     c=381596;
+		     print((18*((c-395095)*8)))
+	Target:      -1943856.
+	Prediction:  1.3..7...
+	-----------------------------
+	Input:	     e=253970;
+		     print((735778+(e+534196)))
+	Target:      1523944.
+	Prediction:  11...633
+	-----------------------------
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     print((8+5))
+	Target:      13.
+	-----------------------------
+	Input:	     print((2+1))
+	Target:      3.
+	-----------------------------
+	Input:	     b=1;
+		     print((b-7378))
+	Target:      -7377.
+	-----------------------------
+
+epoch=6, Training acc.=15.15%, Validation acc.=12.73%, Test acc.=10.41%, current length=1, current nesting=1, characters per sec.=7345, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     c=9;
+		     print((c-3))
+	Target:      6.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  45
+	-----------------------------
+	Input:	     print((5+78729))
+	Target:      78734.
+	Prediction:  44.4.8
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((1*3))
+	Target:      3.
+	Prediction:  44
+	-----------------------------
+	Input:	     a=4;
+		     print((a-8))
+	Target:      -4.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((2*1))
+	Target:      2.
+	Prediction:  58
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     i=552585;
+		     e=(908317+(i+204917));
+		     print((e+576667))
+	Target:      2242486.
+	Prediction:  54588.55
+	-----------------------------
+	Input:	     d=565381;
+		     g=85181;
+		     print((g-(d-314883)))
+	Target:      -165317.
+	Prediction:  455.5555
+	-----------------------------
+	Input:	     print((((7*883317)*11)-545191))
+	Target:      67470218.
+	Prediction:  -5455445.
+	-----------------------------
+epoch=6, Training acc.=14.17%, Validation acc.=9.88%, Test acc.=8.86%, current length=1, current nesting=1, characters per sec.=10220, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((361443+4))
+	Target:      361447.
+	Prediction:  4.58454
+	-----------------------------
+	Input:	     print((3-10))
+	Target:      -7.
+	Prediction:  454
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	Prediction:  54
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((1-2))
+	Target:      -1.
+	Prediction:  545
+	-----------------------------
+	Input:	     print((9-4))
+	Target:      5.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((1+1))
+	Target:      2.
+	Prediction:  55
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     g=57049;
+		     j=529755;
+		     print((j+(g-863966)))
+	Target:      -277162.
+	Prediction:  45554544
+	-----------------------------
+	Input:	     print(((867687+597214)*17))
+	Target:      24903317.
+	Prediction:  454455545
+	-----------------------------
+	Input:	     print(((912391*1)+575945))
+	Target:      1488336.
+	Prediction:  55.55445
+	-----------------------------
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     print((6333+33))
+	Target:      6366.
+	-----------------------------
+	Input:	     c=10;
+		     print((4+(c-(2*2))))
+	Target:      10.
+	-----------------------------
+	Input:	     print((7-1))
+	Target:      6.
+	-----------------------------
+
+epoch=7, Training acc.=16.04%, Validation acc.=30.53%, Test acc.=11.64%, current length=1, current nesting=1, characters per sec.=7340, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((6265+4))
+	Target:      6269.
+	Prediction:  19.6.
+	-----------------------------
+	Input:	     print((9509+8958))
+	Target:      18467.
+	Prediction:  92.11.
+	-----------------------------
+	Input:	     d=5;
+		     print((d-2))
+	Target:      3.
+	Prediction:  96
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((1*2))
+	Target:      2.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((2*5))
+	Target:      10.
+	Prediction:  99.
+	-----------------------------
+	Input:	     print((6-1))
+	Target:      5.
+	Prediction:  9.
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print(((9*(167943*3))+738375))
+	Target:      5272836.
+	Prediction:  9.926266
+	-----------------------------
+	Input:	     print(((883064+(181342*23))*12))
+	Target:      60647160.
+	Prediction:  66...69..
+	-----------------------------
+	Input:	     i=284331;
+		     print((((i+565069)+736117)*11))
+	Target:      17440687.
+	Prediction:  66.2.....
+	-----------------------------
+epoch=7, Training acc.=16.96%, Validation acc.=23.88%, Test acc.=13.20%, current length=1, current nesting=1, characters per sec.=10254, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((4*9))
+	Target:      36.
+	Prediction:  -3.
+	-----------------------------
+	Input:	     print((6-2))
+	Target:      4.
+	Prediction:  -7
+	-----------------------------
+	Input:	     a=15;
+		     print((a-8))
+	Target:      7.
+	Prediction:  -0
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((2+7))
+	Target:      9.
+	Prediction:  14
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  48
+	-----------------------------
+	Input:	     print((10-1))
+	Target:      9.
+	Prediction:  3.
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     i=559880;
+		     print((i+(766563-41399)))
+	Target:      1285044.
+	Prediction:  1...3...
+	-----------------------------
+	Input:	     print((1*663996))
+	Target:      663996.
+	Prediction:  -....44
+	-----------------------------
+	Input:	     h=76887;
+		     print(((h-(340165+372610))-324515))
+	Target:      -960403.
+	Prediction:  485....1
+	-----------------------------
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     print((3*18))
+	Target:      54.
+	-----------------------------
+	Input:	     h=4;
+		     print((h-9))
+	Target:      -5.
+	-----------------------------
+	Input:	     i=80683;
+		     print((i+2))
+	Target:      80685.
+	-----------------------------
+
+epoch=8, Training acc.=17.45%, Validation acc.=5.48%, Test acc.=8.56%, current length=1, current nesting=1, characters per sec.=7395, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     i=1;
+		     print((i-8))
+	Target:      -7.
+	Prediction:  994
+	-----------------------------
+	Input:	     print((2*7))
+	Target:      14.
+	Prediction:  444
+	-----------------------------
+	Input:	     e=8;
+		     print((e-15989))
+	Target:      -15981.
+	Prediction:  4999999
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((9*4))
+	Target:      36.
+	Prediction:  949
+	-----------------------------
+	Input:	     print((10+1))
+	Target:      11.
+	Prediction:  944
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     e=54553;
+		     h=166025;
+		     d=440480;
+		     print((d+(h-(e+614694))))
+	Target:      -62742.
+	Prediction:  9994944
+	-----------------------------
+	Input:	     print((876465*11))
+	Target:      9641115.
+	Prediction:  99444999
+	-----------------------------
+	Input:	     j=941299;
+		     print((19948+((j-359950)-487175)))
+	Target:      114122.
+	Prediction:  4449499
+	-----------------------------
+epoch=8, Training acc.=14.67%, Validation acc.=5.44%, Test acc.=8.31%, current length=1, current nesting=1, characters per sec.=10179, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((594459*4))
+	Target:      2377836.
+	Prediction:  90906069
+	-----------------------------
+	Input:	     f=8;
+		     print((f+5))
+	Target:      13.
+	Prediction:  900
+	-----------------------------
+	Input:	     print((866-6))
+	Target:      860.
+	Prediction:  9090
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  99
+	-----------------------------
+	Input:	     print((7-9))
+	Target:      -2.
+	Prediction:  696
+	-----------------------------
+	Input:	     print((2*2))
+	Target:      4.
+	Prediction:  96
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     a=148907;
+		     print((a-(507705*16)))
+	Target:      -7974373.
+	Prediction:  999999999
+	-----------------------------
+	Input:	     print((482207+337712))
+	Target:      819919.
+	Prediction:  9900900
+	-----------------------------
+	Input:	     a=(565140+(3*588732));
+		     print((a+690027))
+	Target:      3021363.
+	Prediction:  99900999
+	-----------------------------
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     a=1;
+		     print((a+23541))
+	Target:      23542.
+	-----------------------------
+	Input:	     e=1;
+		     print((e+5))
+	Target:      6.
+	-----------------------------
+	Input:	     print((8*2))
+	Target:      16.
+	-----------------------------
+
+epoch=9, Training acc.=16.90%, Validation acc.=35.28%, Test acc.=11.73%, current length=1, current nesting=1, characters per sec.=7415, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((2*8001))
+	Target:      16002.
+	Prediction:  .4.00.
+	-----------------------------
+	Input:	     j=3623;
+		     print((j+7))
+	Target:      3630.
+	Prediction:  2..2.
+	-----------------------------
+	Input:	     print(((3*1)-2))
+	Target:      1.
+	Prediction:  00
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  10
+	-----------------------------
+	Input:	     c=6;
+		     print((c-8))
+	Target:      -2.
+	Prediction:  02.
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     b=(876140-491264);
+		     print((b+109722))
+	Target:      494598.
+	Prediction:  2....4.
+	-----------------------------
+	Input:	     e=589573;
+		     a=(e+474628);
+		     print((a+310043))
+	Target:      1374244.
+	Prediction:  ...20...
+	-----------------------------
+	Input:	     c=(845290+764660);
+		     j=945343;
+		     print((j-(c-364119)))
+	Target:      -300488.
+	Prediction:  28...8.8
+	-----------------------------
+epoch=9, Training acc.=20.82%, Validation acc.=32.13%, Test acc.=14.45%, current length=1, current nesting=1, characters per sec.=10278, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((10-75))
+	Target:      -65.
+	Prediction:  151.
+	-----------------------------
+	Input:	     print((6+2))
+	Target:      8.
+	Prediction:  10
+	-----------------------------
+	Input:	     print((4-7))
+	Target:      -3.
+	Prediction:  1..
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     i=4;
+		     print((i+2))
+	Target:      6.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print((1*2))
+	Target:      2.
+	Prediction:  -2
+	-----------------------------
+	Input:	     b=3;
+		     print((b+5))
+	Target:      8.
+	Prediction:  6.
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     c=867457;
+		     j=((c-650235)+242642);
+		     print((j-82318))
+	Target:      377546.
+	Prediction:  1.7.0..
+	-----------------------------
+	Input:	     c=106103;
+		     i=943776;
+		     print((i+(c-318619)))
+	Target:      731260.
+	Prediction:  1.7.1..
+	-----------------------------
+	Input:	     d=((822154-623611)+935918);
+		     print((d+470335))
+	Target:      1604796.
+	Prediction:  -8.1....
+	-----------------------------
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     print((1+4))
+	Target:      5.
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	-----------------------------
+	Input:	     print(94)
+	Target:      94.
+	-----------------------------
+
+epoch=10, Training acc.=25.55%, Validation acc.=35.82%, Test acc.=12.47%, current length=1, current nesting=1, characters per sec.=7380, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     i=(726851*1);
+		     print((i-2086))
+	Target:      724765.
+	Prediction:  1......
+	-----------------------------
+	Input:	     e=2;
+		     print(((e-5)+1))
+	Target:      -2.
+	Prediction:  ...
+	-----------------------------
+	Input:	     h=8;
+		     print((h+2))
+	Target:      10.
+	Prediction:  ..1
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((6*3))
+	Target:      18.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  1.
+	-----------------------------
+	Input:	     b=7;
+		     print((b-10))
+	Target:      -3.
+	Prediction:  11.
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     b=((549202+294680)+901906);
+		     print((b-270042))
+	Target:      1475746.
+	Prediction:  ...1....
+	-----------------------------
+	Input:	     a=733564;
+		     h=720421;
+		     print((h-((a+537068)*19)))
+	Target:      -23421587.
+	Prediction:  1.81..18.4
+	-----------------------------
+	Input:	     print(((16*(20*15971))*20))
+	Target:      102214400.
+	Prediction:  10.011..1.
+	-----------------------------
+epoch=10, Training acc.=22.74%, Validation acc.=9.43%, Test acc.=9.17%, current length=1, current nesting=1, characters per sec.=10239, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((8+10728))
+	Target:      10736.
+	Prediction:  ---116
+	-----------------------------
+	Input:	     print((3*40))
+	Target:      120.
+	Prediction:  3666
+	-----------------------------
+	Input:	     print(9120)
+	Target:      9120.
+	Prediction:  -6-8-
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     f=5;
+		     print((f-1))
+	Target:      4.
+	Prediction:  -6
+	-----------------------------
+	Input:	     print((2*4))
+	Target:      8.
+	Prediction:  -5
+	-----------------------------
+	Input:	     print((8-8))
+	Target:      0.
+	Prediction:  --
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print((191745-((772127+697544)*24)))
+	Target:      -35080359.
+	Prediction:  --.8.144.1
+	-----------------------------
+	Input:	     print(((14*968048)*1))
+	Target:      13552672.
+	Prediction:  -11-8.6-8
+	-----------------------------
+	Input:	     print((744788*9))
+	Target:      6703092.
+	Prediction:  -6-076--
+	-----------------------------
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     f=10;
+		     print((f-7))
+	Target:      3.
+	-----------------------------
+	Input:	     j=21277;
+		     print(((j+(4*235))*3))
+	Target:      66651.
+	-----------------------------
+	Input:	     print((7+384))
+	Target:      391.
+	-----------------------------
+
+epoch=11, Training acc.=12.80%, Validation acc.=10.01%, Test acc.=10.18%, current length=1, current nesting=1, characters per sec.=7391, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     e=7;
+		     print((e-69))
+	Target:      -62.
+	Prediction:  --1-
+	-----------------------------
+	Input:	     print((4*4))
+	Target:      16.
+	Prediction:  ---
+	-----------------------------
+	Input:	     print((7-1))
+	Target:      6.
+	Prediction:  .-
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((3*10))
+	Target:      30.
+	Prediction:  -.4
+	-----------------------------
+	Input:	     print((7*2))
+	Target:      14.
+	Prediction:  --0
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  -.
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     i=159278;
+		     h=146645;
+		     print((h-((i-774397)-934329)))
+	Target:      1696093.
+	Prediction:  3311441.
+	-----------------------------
+	Input:	     h=91385;
+		     g=(428421-(h-305446));
+		     print((g-667511))
+	Target:      -25029.
+	Prediction:  --.9--5
+	-----------------------------
+	Input:	     print((15*555664))
+	Target:      8334960.
+	Prediction:  -3404400
+	-----------------------------
+epoch=11, Training acc.=14.28%, Validation acc.=15.87%, Test acc.=11.38%, current length=1, current nesting=1, characters per sec.=10317, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((8+5))
+	Target:      13.
+	Prediction:  55.
+	-----------------------------
+	Input:	     print((5*2))
+	Target:      10.
+	Prediction:  -50
+	-----------------------------
+	Input:	     print((61452-7))
+	Target:      61445.
+	Prediction:  -1-.04
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((2*3))
+	Target:      6.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print((2*3))
+	Target:      6.
+	Prediction:  -7
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  --
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     a=921032;
+		     h=280780;
+		     print((h+(a+252003)))
+	Target:      1453815.
+	Prediction:  4-0002.5
+	-----------------------------
+	Input:	     print((584810*7))
+	Target:      4093670.
+	Prediction:  -4.4..--
+	-----------------------------
+	Input:	     print((73925-((279592-722244)*5)))
+	Target:      2287185.
+	Prediction:  -31.551.
+	-----------------------------
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     c=2;
+		     print((c+6))
+	Target:      8.
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	-----------------------------
+	Input:	     a=9;
+		     e=240;
+		     print((e-(a+1)))
+	Target:      230.
+	-----------------------------
+
+epoch=12, Training acc.=17.18%, Validation acc.=18.02%, Test acc.=10.31%, current length=1, current nesting=1, characters per sec.=7421, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((6+10))
+	Target:      16.
+	Prediction:  -40
+	-----------------------------
+	Input:	     g=6;
+		     print((g+2))
+	Target:      8.
+	Prediction:  -8
+	-----------------------------
+	Input:	     h=8881;
+		     print((h+10))
+	Target:      8891.
+	Prediction:  -.00.
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     g=6;
+		     print((g+9))
+	Target:      15.
+	Prediction:  0.-
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print((7*3))
+	Target:      21.
+	Prediction:  4..
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     c=(976295-(765045*20));
+		     print((c+159226))
+	Target:      -14165379.
+	Prediction:  4.0...3.43
+	-----------------------------
+	Input:	     d=653907;
+		     print(((d-745963)+578449))
+	Target:      486393.
+	Prediction:  4.0.240
+	-----------------------------
+	Input:	     a=153691;
+		     print((132650-((a-182057)*8)))
+	Target:      359578.
+	Prediction:  4-0540.
+	-----------------------------
+epoch=12, Training acc.=16.98%, Validation acc.=39.26%, Test acc.=12.49%, current length=1, current nesting=1, characters per sec.=10203, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     e=8;
+		     print((e-9))
+	Target:      -1.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((6+92626))
+	Target:      92632.
+	Prediction:  -..7..
+	-----------------------------
+	Input:	     print((1+5))
+	Target:      6.
+	Prediction:  ..
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print((7-9))
+	Target:      -2.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((2*2))
+	Target:      4.
+	Prediction:  3.
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print((130221+(8*998390)))
+	Target:      8117341.
+	Prediction:  7.3.....
+	-----------------------------
+	Input:	     print((9*(171379-(741376-25485))))
+	Target:      -4900608.
+	Prediction:  -3....3..
+	-----------------------------
+	Input:	     i=142349;
+		     print((i-583412))
+	Target:      -441063.
+	Prediction:  .....9..
+	-----------------------------
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     print((10-1655))
+	Target:      -1645.
+	-----------------------------
+	Input:	     e=1;
+		     print((e-4))
+	Target:      -3.
+	-----------------------------
+	Input:	     c=3;
+		     print((c-7))
+	Target:      -4.
+	-----------------------------
+
+epoch=13, Training acc.=16.44%, Validation acc.=6.57%, Test acc.=8.33%, current length=1, current nesting=1, characters per sec.=7378, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((7*4))
+	Target:      28.
+	Prediction:  009
+	-----------------------------
+	Input:	     g=8;
+		     print((g-5))
+	Target:      3.
+	Prediction:  90
+	-----------------------------
+	Input:	     d=17;
+		     print((d-9))
+	Target:      8.
+	Prediction:  90
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((9-4))
+	Target:      5.
+	Prediction:  00
+	-----------------------------
+	Input:	     print((4*10))
+	Target:      40.
+	Prediction:  909
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  90
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     i=559880;
+		     print((i+(766563-41399)))
+	Target:      1285044.
+	Prediction:  90000090
+	-----------------------------
+	Input:	     print((1*663996))
+	Target:      663996.
+	Prediction:  990990.
+	-----------------------------
+	Input:	     h=76887;
+		     print(((h-(340165+372610))-324515))
+	Target:      -960403.
+	Prediction:  00000000
+	-----------------------------
+epoch=13, Training acc.=14.60%, Validation acc.=28.70%, Test acc.=15.40%, current length=1, current nesting=1, characters per sec.=10184, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     b=3;
+		     print((b+9))
+	Target:      12.
+	Prediction:  2.2
+	-----------------------------
+	Input:	     print((3-10))
+	Target:      -7.
+	Prediction:  -22
+	-----------------------------
+	Input:	     print((8*2))
+	Target:      16.
+	Prediction:  222
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((9-4))
+	Target:      5.
+	Prediction:  12
+	-----------------------------
+	Input:	     print((4*10))
+	Target:      40.
+	Prediction:  2..
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  2.
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print((16*(791431+621729)))
+	Target:      22610560.
+	Prediction:  221.2....
+	-----------------------------
+	Input:	     i=294067;
+		     print(((i+780761)-665325))
+	Target:      409503.
+	Prediction:  22...2.
+	-----------------------------
+	Input:	     d=983968;
+		     print((d-(10*(353000+678691))))
+	Target:      -9332942.
+	Prediction:  222......
+	-----------------------------
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     print((421996+2))
+	Target:      421998.
+	-----------------------------
+	Input:	     a=4352;
+		     print((a-10))
+	Target:      4342.
+	-----------------------------
+	Input:	     print((3-(3*(4-40))))
+	Target:      111.
+	-----------------------------
+
+epoch=14, Training acc.=16.48%, Validation acc.=17.76%, Test acc.=10.10%, current length=1, current nesting=1, characters per sec.=7241, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     i=1;
+		     print((i-10))
+	Target:      -9.
+	Prediction:  375
+	-----------------------------
+	Input:	     print((8+9))
+	Target:      17.
+	Prediction:  53.
+	-----------------------------
+	Input:	     b=25753;
+		     print((b-547024))
+	Target:      -521271.
+	Prediction:  335.0500
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  30
+	-----------------------------
+	Input:	     print((6*4))
+	Target:      24.
+	Prediction:  -00
+	-----------------------------
+	Input:	     print((9+2))
+	Target:      11.
+	Prediction:  53.
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     i=391599;
+		     print((i-(708054+851825)))
+	Target:      -1168280.
+	Prediction:  83797778.
+	-----------------------------
+	Input:	     print((871568-(139067*18)))
+	Target:      -1631638.
+	Prediction:  4330537.3
+	-----------------------------
+	Input:	     print(((962906+(984845*22))*10))
+	Target:      226294960.
+	Prediction:  3.75950555
+	-----------------------------
+epoch=14, Training acc.=16.48%, Validation acc.=17.76%, Test acc.=10.10%, current length=1, current nesting=1, characters per sec.=7241, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     i=1;
+		     print((i-10))
+	Target:      -9.
+	Prediction:  375
+	-----------------------------
+	Input:	     print((8+9))
+	Target:      17.
+	Prediction:  53.
+	-----------------------------
+	Input:	     b=25753;
+		     print((b-547024))
+	Target:      -521271.
+	Prediction:  335.0500
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  30
+	-----------------------------
+	Input:	     print((6*4))
+	Target:      24.
+	Prediction:  -00
+	-----------------------------
+	Input:	     print((9+2))
+	Target:      11.
+	Prediction:  53.
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     i=391599;
+		     print((i-(708054+851825)))
+	Target:      -1168280.
+	Prediction:  83797778.
+	-----------------------------
+	Input:	     print((871568-(139067*18)))
+	Target:      -1631638.
+	Prediction:  4330537.3
+	-----------------------------
+	Input:	     print(((962906+(984845*22))*10))
+	Target:      226294960.
+	Prediction:  3.75950555
+	-----------------------------
+epoch=14, Training acc.=20.37%, Validation acc.=9.13%, Test acc.=10.58%, current length=1, current nesting=1, characters per sec.=10056, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((1*5))
+	Target:      5.
+	Prediction:  -8
+	-----------------------------
+	Input:	     print((4-3))
+	Target:      1.
+	Prediction:  --
+	-----------------------------
+	Input:	     b=9;
+		     print((b+7))
+	Target:      16.
+	Prediction:  --0
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((3+7))
+	Target:      10.
+	Prediction:  -00
+	-----------------------------
+	Input:	     print((2*2))
+	Target:      4.
+	Prediction:  -.
+	-----------------------------
+	Input:	     d=5;
+		     print((d+2))
+	Target:      7.
+	Prediction:  --
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print(((9*(167943*3))+738375))
+	Target:      5272836.
+	Prediction:  ----8001
+	-----------------------------
+	Input:	     print(((883064+(181342*23))*12))
+	Target:      60647160.
+	Prediction:  -8810-01-
+	-----------------------------
+	Input:	     i=284331;
+		     print((((i+565069)+736117)*11))
+	Target:      17440687.
+	Prediction:  1010-0-8-
+	-----------------------------
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     print(2625)
+	Target:      2625.
+	-----------------------------
+	Input:	     a=3;
+		     print((a-10))
+	Target:      -7.
+	-----------------------------
+	Input:	     i=5;
+		     print((i-8))
+	Target:      -3.
+	-----------------------------
+
+epoch=15, Training acc.=20.99%, Validation acc.=5.14%, Test acc.=8.83%, current length=1, current nesting=1, characters per sec.=7375, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print(2625)
+	Target:      2625.
+	Prediction:  50561
+	-----------------------------
+	Input:	     a=3;
+		     print((a-10))
+	Target:      -7.
+	Prediction:  166
+	-----------------------------
+	Input:	     i=5;
+		     print((i-8))
+	Target:      -3.
+	Prediction:  -58
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((4-5))
+	Target:      -1.
+	Prediction:  664
+	-----------------------------
+	Input:	     j=2;
+		     print((j+7))
+	Target:      9.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((4*10))
+	Target:      40.
+	Prediction:  666
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     i=816867;
+		     print((((i-229618)-888122)*12))
+	Target:      -3610476.
+	Prediction:  660668.66
+	-----------------------------
+	Input:	     print(((93458*5)*22))
+	Target:      10280380.
+	Prediction:  610466680
+	-----------------------------
+	Input:	     b=212890;
+		     print(((b+578457)-574735))
+	Target:      216612.
+	Prediction:  6066610
+	-----------------------------
+epoch=15, Training acc.=27.18%, Validation acc.=43.52%, Test acc.=13.50%, current length=1, current nesting=1, characters per sec.=10259, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     a=3;
+		     print((3055+(a-1)))
+	Target:      3057.
+	Prediction:  3....
+	-----------------------------
+	Input:	     print((1-4))
+	Target:      -3.
+	Prediction:  3.4
+	-----------------------------
+	Input:	     print((14+5))
+	Target:      19.
+	Prediction:  2..
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((4-5))
+	Target:      -1.
+	Prediction:  ...
+	-----------------------------
+	Input:	     j=2;
+		     print((j+7))
+	Target:      9.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print((4*10))
+	Target:      40.
+	Prediction:  ...
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print(((760413*7)+543387))
+	Target:      5866278.
+	Prediction:  7.......
+	-----------------------------
+	Input:	     f=665913;
+		     print(((f+653225)+216787))
+	Target:      1535925.
+	Prediction:  2.44...0
+	-----------------------------
+	Input:	     print((10*(934447-461797)))
+	Target:      4726500.
+	Prediction:  1.......
+	-----------------------------
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     print((2-2))
+	Target:      0.
+	-----------------------------
+	Input:	     a=2;
+		     print((a-3))
+	Target:      -1.
+	-----------------------------
+	Input:	     print((2*7))
+	Target:      14.
+	-----------------------------
+
+epoch=16, Training acc.=19.99%, Validation acc.=3.30%, Test acc.=8.33%, current length=1, current nesting=1, characters per sec.=7359, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     a=5;
+		     print((a-8))
+	Target:      -3.
+	Prediction:  628
+	-----------------------------
+	Input:	     f=26;
+		     print((f-4))
+	Target:      22.
+	Prediction:  666
+	-----------------------------
+	Input:	     a=5;
+		     print((a+4))
+	Target:      9.
+	Prediction:  68
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  66
+	-----------------------------
+	Input:	     a=6;
+		     print((a+7))
+	Target:      13.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((4*7))
+	Target:      28.
+	Prediction:  266
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print((118609+394775))
+	Target:      513384.
+	Prediction:  6666666
+	-----------------------------
+	Input:	     g=749218;
+		     print(((g-(842775-385349))+718647))
+	Target:      1010439.
+	Prediction:  66866666
+	-----------------------------
+	Input:	     f=67830;
+		     print(((f-262358)-987706))
+	Target:      -1182234.
+	Prediction:  688665566
+	-----------------------------
+epoch=16, Training acc.=17.19%, Validation acc.=14.09%, Test acc.=10.78%, current length=1, current nesting=1, characters per sec.=10076, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     i=9131;
+		     print((i+5))
+	Target:      9136.
+	Prediction:  66666
+	-----------------------------
+	Input:	     print((1*5))
+	Target:      5.
+	Prediction:  63
+	-----------------------------
+	Input:	     f=3;
+		     print((f-1))
+	Target:      2.
+	Prediction:  16
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  -6
+	-----------------------------
+	Input:	     print((9*4))
+	Target:      36.
+	Prediction:  363
+	-----------------------------
+	Input:	     print((10+1))
+	Target:      11.
+	Prediction:  -60
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     g=57049;
+		     j=529755;
+		     print((j+(g-863966)))
+	Target:      -277162.
+	Prediction:  13--766.
+	-----------------------------
+	Input:	     print(((867687+597214)*17))
+	Target:      24903317.
+	Prediction:  -.6367999
+	-----------------------------
+	Input:	     print(((912391*1)+575945))
+	Target:      1488336.
+	Prediction:  -.69374.
+	-----------------------------
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     print((4*4))
+	Target:      16.
+	-----------------------------
+	Input:	     print((228348-6))
+	Target:      228342.
+	-----------------------------
+	Input:	     print((7*4))
+	Target:      28.
+	-----------------------------
+
+epoch=17, Training acc.=19.64%, Validation acc.=17.11%, Test acc.=11.10%, current length=1, current nesting=1, characters per sec.=7269, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((7-4637))
+	Target:      -4630.
+	Prediction:  1101..
+	-----------------------------
+	Input:	     i=9;
+		     print((i+((5-3)*2)))
+	Target:      13.
+	Prediction:  44.
+	-----------------------------
+	Input:	     print((1*5))
+	Target:      5.
+	Prediction:  3.
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((2+7))
+	Target:      9.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  10
+	-----------------------------
+	Input:	     print((10-1))
+	Target:      9.
+	Prediction:  09
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     i=391599;
+		     print((i-(708054+851825)))
+	Target:      -1168280.
+	Prediction:  94.1...00
+	-----------------------------
+	Input:	     print((871568-(139067*18)))
+	Target:      -1631638.
+	Prediction:  334..4440
+	-----------------------------
+	Input:	     print(((962906+(984845*22))*10))
+	Target:      226294960.
+	Prediction:  4....0.044
+	-----------------------------
+epoch=17, Training acc.=15.20%, Validation acc.=2.86%, Test acc.=8.54%, current length=1, current nesting=1, characters per sec.=10107, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((9+7))
+	Target:      16.
+	Prediction:  855
+	-----------------------------
+	Input:	     print(5337)
+	Target:      5337.
+	Prediction:  88558
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	Prediction:  88
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((9-7))
+	Target:      2.
+	Prediction:  88
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  85
+	-----------------------------
+	Input:	     h=9;
+		     print((h-6))
+	Target:      3.
+	Prediction:  85
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     j=(62406-686723);
+		     print((j-149565))
+	Target:      -773882.
+	Prediction:  88858888
+	-----------------------------
+	Input:	     a=411582;
+		     print((a-(10*457036)))
+	Target:      -4158778.
+	Prediction:  888558885
+	-----------------------------
+	Input:	     g=480150;
+		     a=110547;
+		     print((a-(g+(965791+204886))))
+	Target:      -1540280.
+	Prediction:  885558855
+	-----------------------------
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     print((4-1))
+	Target:      3.
+	-----------------------------
+	Input:	     print((6-8))
+	Target:      -2.
+	-----------------------------
+	Input:	     f=(4+4);
+		     print(((f+2)*1))
+	Target:      10.
+	-----------------------------
+
+epoch=18, Training acc.=13.86%, Validation acc.=7.91%, Test acc.=9.44%, current length=1, current nesting=1, characters per sec.=7365, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     a=10;
+		     print((a+4))
+	Target:      14.
+	Prediction:  747
+	-----------------------------
+	Input:	     a=5;
+		     print((a-3))
+	Target:      2.
+	Prediction:  73
+	-----------------------------
+	Input:	     c=(5*2);
+		     print(((c-2)+48084))
+	Target:      48092.
+	Prediction:  439489
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     f=5;
+		     print((f-1))
+	Target:      4.
+	Prediction:  7.
+	-----------------------------
+	Input:	     print((2*4))
+	Target:      8.
+	Prediction:  19
+	-----------------------------
+	Input:	     print((8-8))
+	Target:      0.
+	Prediction:  94
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     g=385360;
+		     print(((g+925097)*19))
+	Target:      24898683.
+	Prediction:  389.59359
+	-----------------------------
+	Input:	     g=((924572-79954)*13);
+		     print((g+453437))
+	Target:      11433471.
+	Prediction:  479797799
+	-----------------------------
+	Input:	     print((((601108-858588)-882577)*5))
+	Target:      -5700285.
+	Prediction:  939999499
+	-----------------------------
+epoch=18, Training acc.=15.28%, Validation acc.=10.92%, Test acc.=10.60%, current length=1, current nesting=1, characters per sec.=10163, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((8*2))
+	Target:      16.
+	Prediction:  155
+	-----------------------------
+	Input:	     print((88643*1))
+	Target:      88643.
+	Prediction:  518981
+	-----------------------------
+	Input:	     print((1*64))
+	Target:      64.
+	Prediction:  980
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     h=8;
+		     print((h+8))
+	Target:      16.
+	Prediction:  985
+	-----------------------------
+	Input:	     print((6*3))
+	Target:      18.
+	Prediction:  150
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  11
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     e=833274;
+		     print(((e+861392)*2))
+	Target:      3389332.
+	Prediction:  18889815
+	-----------------------------
+	Input:	     h=152317;
+		     e=(h-619001);
+		     print((1*(e+793316)))
+	Target:      326632.
+	Prediction:  1559888
+	-----------------------------
+	Input:	     j=927080;
+		     print((j-(293319+(7*432378))))
+	Target:      -2392885.
+	Prediction:  115188889
+	-----------------------------
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     f=709929;
+		     print((f+(2-6)))
+	Target:      709925.
+	-----------------------------
+	Input:	     j=3;
+		     print(((8+(j-5))-2))
+	Target:      4.
+	-----------------------------
+	Input:	     print((9+(832642-7)))
+	Target:      832644.
+	-----------------------------
+
+epoch=19, Training acc.=15.04%, Validation acc.=35.99%, Test acc.=13.39%, current length=1, current nesting=1, characters per sec.=7348, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     e=1;
+		     print((e-4))
+	Target:      -3.
+	Prediction:  161
+	-----------------------------
+	Input:	     print((((4*7)*1)*2))
+	Target:      56.
+	Prediction:  86.
+	-----------------------------
+	Input:	     e=2412;
+		     g=5;
+		     print((g-(e-1)))
+	Target:      -2406.
+	Prediction:  1111..
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((1-10))
+	Target:      -9.
+	Prediction:  11.
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  16
+	-----------------------------
+	Input:	     b=10;
+		     print((b+6))
+	Target:      16.
+	Prediction:  1..
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     b=913740;
+		     print((854500+(b-52268)))
+	Target:      1715972.
+	Prediction:  ........
+	-----------------------------
+	Input:	     a=331849;
+		     print((a+349338))
+	Target:      681187.
+	Prediction:  7..61.6
+	-----------------------------
+	Input:	     print((992623*3))
+	Target:      2977869.
+	Prediction:  18..8..1
+	-----------------------------
+epoch=19, Training acc.=14.94%, Validation acc.=4.38%, Test acc.=8.03%, current length=1, current nesting=1, characters per sec.=10267, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((70-9))
+	Target:      61.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((2+1))
+	Target:      3.
+	Prediction:  36
+	-----------------------------
+	Input:	     print((5+9))
+	Target:      14.
+	Prediction:  666
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((4-5))
+	Target:      -1.
+	Prediction:  666
+	-----------------------------
+	Input:	     j=2;
+		     print((j+7))
+	Target:      9.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((4*10))
+	Target:      40.
+	Prediction:  666
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print((3*503858))
+	Target:      1511574.
+	Prediction:  86666668
+	-----------------------------
+	Input:	     c=((307835*9)+613299);
+		     print((c+223232))
+	Target:      3607046.
+	Prediction:  66666366
+	-----------------------------
+	Input:	     a=528325;
+		     print((((a-381239)+462983)*7))
+	Target:      4270483.
+	Prediction:  66866663
+	-----------------------------
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     i=10;
+		     print((i+7))
+	Target:      17.
+	-----------------------------
+	Input:	     print(((5*4)*4))
+	Target:      80.
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	-----------------------------
+
+

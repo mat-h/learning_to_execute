@@ -152,6 +152,7 @@ function get_data(state)
       end
     end
   end
+  io.write("(Total number of data were: " .. i)
   io.write("\n")
 end
 

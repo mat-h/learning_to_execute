@@ -233,6 +233,14 @@ function show_predictions(state)
   end
 end
 
+function saveAsFile(filename)
+  for i = 1, params.seq_length do
+    local file = torch.DiskFile("model/" .. i .. filename, 'w')
+    model.rnns[i]:write(file)
+    file:close()
+  end
+end
+
 function main()
 
   local cmd = torch.CmdLine()
@@ -287,6 +295,7 @@ function main()
     assert(state.len % params.seq_length == 1)
   end
   setup()
+  saveAsFile("initial.model")
   local step = 0
   local epoch = 0
   local train_accs = {}
@@ -312,13 +321,13 @@ function main()
         ', current nesting=' .. params.current_nesting ..
         ', characters per sec.=' .. cps ..
         ', learning rate=' .. string.format("%.3f", params.learningRate))
-      if (state_val.acc > params.target_accuracy) or
-        (#train_accs >= 5 and
-        train_accs[#train_accs - 4] > state_train.acc) then -- これの意味は？
+      if (state_val.acc > params.target_accuracy) then -- これの意味は？
         if not make_harder() then
           params.learningRate = params.learningRate * 0.8
         end
         if params.learningRate < 1e-3 then
+          -- ここで最終モデルを保存してみてはどうか?
+          saveAsFile("final.model")
           break
         end
         load_data(state_train)
