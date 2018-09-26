@@ -140,7 +140,7 @@ function get_data(state)
             break
       end 
       
-      if (i <= 2) then
+      if (i <= 2 * 10) then
         io.write("\tInput:\t")
         local orig = string.format("     %s", orig)
         orig = orig:gsub("#", "\n\t\t     ")

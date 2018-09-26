@@ -214,7 +214,7 @@ function show_predictions(state)
     state.pos = state.pos + 1
     local last_x = state.data.x[state.pos - 1][batch_idx]
     if state.pos > 1 and symbolsManager.idx2symbol[last_x] == "." then
-      if sample_idx >= 3 then
+      if sample_idx >= 3 * 10 then
         break
       end
       sample_idx = sample_idx + 1
@@ -295,7 +295,7 @@ function main()
     assert(state.len % params.seq_length == 1)
   end
   setup()
-  saveAsFile("initial.model")
+  -- saveAsFile("initial.model")
   local step = 0
   local epoch = 0
   local train_accs = {}
@@ -321,7 +321,9 @@ function main()
         ', current nesting=' .. params.current_nesting ..
         ', characters per sec.=' .. cps ..
         ', learning rate=' .. string.format("%.3f", params.learningRate))
-      if (state_val.acc > params.target_accuracy) then -- これの意味は？
+      if (state_val.acc > params.target_accuracy) or
+        (#train_accs >= 5 and
+        train_accs[#train_accs - 4] > state_train.acc) then -- これの意味は？
         if not make_harder() then
           params.learningRate = params.learningRate * 0.8
         end
