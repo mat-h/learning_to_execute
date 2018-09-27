@@ -39,11 +39,11 @@ function lstm(i, prev_c, prev_h)
 end
 
 function create_network()
-  local x                = nn.Identity()()
-  local y                = nn.Identity()()
+  local x                = nn.Identity()() -- 数式
+  local y                = nn.Identity()() -- target(答え)
   local prev_s           = nn.Identity()()
   local i                = {[0] = Embedding(symbolsManager.vocab_size,
-                                            params.rnn_size)(x)}
+                                            params.rnn_size)(x)} -- ワンホットを、より高次元に0を補完して埋め込み
   local next_s           = {}
   local splitted         = {prev_s:split(2 * params.layers)}
   for layer_idx = 1, params.layers do
@@ -58,9 +58,9 @@ function create_network()
   local h2y              = nn.Linear(params.rnn_size, symbolsManager.vocab_size)
   local pred             = nn.LogSoftMax()(h2y(i[params.layers]))
   local err              = MaskedLoss()({pred, y})
-  local module           = nn.gModule({x, y, prev_s},
-                                      {err, nn.Identity()(next_s)})
-  module:getParameters():uniform(-params.init_weight, params.init_weight)
+  local module           = nn.gModule({x, y, prev_s}, -- prev_sだけを使わずxも使うのは、teacher forcingしたいから
+                                      {err, nn.Identity()(next_s)}) -- ネットワーク全体はgModuleクラス
+  module:getParameters():uniform(-params.init_weight, params.init_weight) -- ランダムな初期値
   if params.gpuidx > 0 then
     return module:cuda()
   else
@@ -126,7 +126,8 @@ function fp(state, paramx_)
     reset_state(state)
   end
   for i = 1, params.seq_length do
-    tmp, model.s[i] = unpack(model.rnns[i]:forward({state.data.x[state.pos],
+    -- 出力形式は {err=MaskedLoss self.output = {output, acc, normal}, nn.Identity()(next_s=次の入力(c,h))}
+    tmp, model.s[i] = unpack(model.rnns[i]:forward({state.data.x[state.pos], -- sを使わず、data.x(真の値)を使っている = teacher forcing
                                                     state.data.y[state.pos + 1],
                                                     model.s[i - 1]}))
     if params.gpuidx > 0 then
@@ -197,6 +198,8 @@ function show_predictions(state)
     local tmp = model.rnns[1]:forward({state.data.x[state.pos],
                                               state.data.y[state.pos + 1],
                                               model.s[0]})[2]
+    -- 出力形式は {err=MaskedLoss self.output = {output, acc, normal}, nn.Identity()(next_s=次の入力(c,h))}
+    -- なので、[2]はnext_sを意味する。                                              
     if params.gpuidx > 0 then
       cutorch.synchronize()
     end
