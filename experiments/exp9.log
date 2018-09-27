@@ -14,3 +14,150 @@ Network parameters:	{
   current_length : 1	
   gpuidx : 1	
 }	
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     print((10+5))
+	Target:      15.
+	-----------------------------
+	Input:	     print((4-3))
+	Target:      1.
+	-----------------------------
+	Input:	     print(845)
+	Target:      845.
+	-----------------------------
+(Total number of data were: 3
+Few exemplary newly generated samples from the Validation dataset:
+	Input:	     print(1)
+	Target:      1.
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	-----------------------------
+(Total number of data were: 3
+Few exemplary newly generated samples from the Test dataset:
+	Input:	     print(6140)
+	Target:      6140.
+	-----------------------------
+	Input:	     print((1250-1517))
+	Target:      -267.
+	-----------------------------
+	Input:	     print(7341)
+	Target:      7341.
+	-----------------------------
+(Total number of data were: 3
+Creating a RNN LSTM network.	Starting training.	epoch=1, Training acc.=11.30%, Validation acc.=3.16%, Test acc.=7.93%, current length=1, current nesting=1, characters per sec.=13473, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((2-2))
+	Target:      0.
+	Prediction:  22
+	-----------------------------
+	Input:	     print((3-5))
+	Target:      -2.
+	Prediction:  222
+	-----------------------------
+	Input:	     print(1158)
+	Target:      1158.
+	Prediction:  22222
+	-----------------------------
+	Input:	     print(65)
+	Target:      65.
+	Prediction:  222
+	-----------------------------
+	Input:	     print((8-3))
+	Target:      5.
+	Prediction:  22
+	-----------------------------
+	Input:	     print(887)
+	Target:      887.
+	Prediction:  2222
+	-----------------------------
+	Input:	     print((5+4))
+	Target:      9.
+	Prediction:  22
+	-----------------------------
+	Input:	     print((3-8))
+	Target:      -5.
+	Prediction:  222
+	-----------------------------
+	Input:	     print((1-7))
+	Target:      -6.
+	Prediction:  222
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  22
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  22
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  22
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  22
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  22
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  22
+	-----------------------------
+	Input:	     print((9+2))
+	Target:      11.
+	Prediction:  222
+	-----------------------------
+	Input:	     print((4+4))
+	Target:      8.
+	Prediction:  22
+	-----------------------------
+	Input:	     print((7-3))
+	Target:      4.
+	Prediction:  22
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print((3680-8370))
+	Target:      -4690.
+	Prediction:  222222
+	-----------------------------
+	Input:	     print((239-230))
+	Target:      9.
+	Prediction:  22
+	-----------------------------
+	Input:	     print((5033-8268))
+	Target:      -3235.
+	Prediction:  222222
+	-----------------------------
+	Input:	     print((7811-7059))
+	Target:      752.
+	Prediction:  2222
+	-----------------------------
+	Input:	     print((7067-215))
+	Target:      6852.
+	Prediction:  22222
+	-----------------------------
+	Input:	     print((1219-1077))
+	Target:      142.
+	Prediction:  2222
+	-----------------------------
+	Input:	     print((9946+7728))
+	Target:      17674.
+	Prediction:  222222
+	-----------------------------
+	Input:	     print(4406)
+	Target:      4406.
+	Prediction:  22222
+	-----------------------------
+	Input:	     print((2705-2193))
+	Target:      512.
+	Prediction:  2222
+	-----------------------------
+epoch=1, Training acc.=19.03%, Validation acc.=17.95%, Test acc.=13.99%, current length=1, current nesting=1, characters per sec.=14793, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((3603+8))
+	Target:  
