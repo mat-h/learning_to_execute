@@ -327,9 +327,9 @@ function main()
         ', characters per sec.=' .. cps ..
         ', learning rate=' .. string.format("%.3f", params.learningRate))
       if(epoch > 0 and epoch % 100 == 0) then saveAsFile("epoch" .. epoch .. ".model") end
-      if (state_val.acc > params.target_accuracy) or
+      if (state_val.acc > params.target_accuracy) --[[or
         (#train_accs >= 5 and
-        train_accs[#train_accs - 4] > state_train.acc)
+        train_accs[#train_accs - 4] > state_train.acc) ]]--
         then -- これの意味は？早めに、"とびこし"に気づくということ?いくらなんでもたった一回で短気では？
         if not make_harder() then
           params.learningRate = params.learningRate * 0.9 -- ブレーキ効かなすぎてもいやなので、0.8からsqrt(0.81)に緩和

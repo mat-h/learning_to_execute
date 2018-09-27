@@ -13,7 +13,6 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 ]]--
-
 function pair_opr(hardness)
   local a, b = get_operands(hardness, 2)
   if random(2) == 1 then
@@ -26,6 +25,7 @@ function pair_opr(hardness)
   return {}, expr, eval
 end
 
+--[[
 function smallmul_opr(hardness)
   local expr, eval = get_operand(hardness)
   local b = random(4 * hardness())
@@ -37,12 +37,13 @@ function smallmul_opr(hardness)
   end
   return {}, expr, eval
 end
-
+]]--
 function equality_opr(hardness)
   local expr, eval = get_operand(hardness)
   return {}, expr, eval
 end
 
+--[[
 function vars_opr(hardness)
   local var = variablesManager:get_unused_variables(1)
   local a, b = get_operands(hardness, 2)
@@ -57,7 +58,6 @@ function vars_opr(hardness)
   end
   return code, expr, eval
 end
---[[
 function small_loop_opr(hardness)
   local r_small = hardness()
   local var = variablesManager:get_unused_variables(1)
