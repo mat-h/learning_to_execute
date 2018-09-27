@@ -1,0 +1,16 @@
+[?1034hTorch 7.0  Copyright (C) 2001-2011 Idiap, NEC Labs, NYU	
+Network parameters:	{	
+  max_grad_norm : 5	
+  seq_length : 50	
+  batch_size : 50	
+  learningRate : 0.5	
+  rnn_size : 400	
+  target_nesting : 1	
+  target_accuracy : 0.95	
+  init_weight : 0.08	
+  target_length : 4	
+  current_nesting : 1	
+  layers : 2	
+  current_length : 1	
+  gpuidx : 1	
+}	

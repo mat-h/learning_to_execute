@@ -1,0 +1,6028 @@
+[?1034hTorch 7.0  Copyright (C) 2001-2011 Idiap, NEC Labs, NYU	
+Network parameters:	{	
+  max_grad_norm : 5	
+  seq_length : 50	
+  batch_size : 400	
+  learningRate : 0.5	
+  rnn_size : 400	
+  target_nesting : 1	
+  target_accuracy : 0.95	
+  init_weight : 0.08	
+  target_length : 2	
+  current_nesting : 1	
+  layers : 2	
+  current_length : 1	
+  gpuidx : 1	
+}	
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     print((7+3))
+	Target:      10.
+	-----------------------------
+	Input:	     print((5+4))
+	Target:      9.
+	-----------------------------
+	Input:	     print((5*3))
+	Target:      15.
+	-----------------------------
+	Input:	     print((4*4))
+	Target:      16.
+	-----------------------------
+	Input:	     print((5*2))
+	Target:      10.
+	-----------------------------
+	Input:	     print((8+8))
+	Target:      16.
+	-----------------------------
+	Input:	     print((3-8))
+	Target:      -5.
+	-----------------------------
+	Input:	     print((5+9))
+	Target:      14.
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	-----------------------------
+	Input:	     print((7*1))
+	Target:      7.
+	-----------------------------
+	Input:	     print((7+6))
+	Target:      13.
+	-----------------------------
+	Input:	     print((10*2))
+	Target:      20.
+	-----------------------------
+	Input:	     print((8*2))
+	Target:      16.
+	-----------------------------
+	Input:	     print((10*2))
+	Target:      20.
+	-----------------------------
+	Input:	     print((4+7))
+	Target:      11.
+	-----------------------------
+	Input:	     print((10-3))
+	Target:      7.
+	-----------------------------
+	Input:	     print((5+9))
+	Target:      14.
+	-----------------------------
+	Input:	     print((3+8))
+	Target:      11.
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	-----------------------------
+	Input:	     print((6+2))
+	Target:      8.
+	-----------------------------
+	Input:	     print((7*4))
+	Target:      28.
+	-----------------------------
+(Total number of data were: 21
+Few exemplary newly generated samples from the Validation dataset:
+	Input:	     print((4+4))
+	Target:      8.
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	-----------------------------
+	Input:	     print((1-6))
+	Target:      -5.
+	-----------------------------
+	Input:	     print((5+2))
+	Target:      7.
+	-----------------------------
+	Input:	     print((1-2))
+	Target:      -1.
+	-----------------------------
+	Input:	     print((1*3))
+	Target:      3.
+	-----------------------------
+	Input:	     print((1*3))
+	Target:      3.
+	-----------------------------
+	Input:	     print((2*9))
+	Target:      18.
+	-----------------------------
+	Input:	     print((4*3))
+	Target:      12.
+	-----------------------------
+	Input:	     print((2*10))
+	Target:      20.
+	-----------------------------
+	Input:	     print((2*3))
+	Target:      6.
+	-----------------------------
+	Input:	     print((4*7))
+	Target:      28.
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	-----------------------------
+	Input:	     print((2*2))
+	Target:      4.
+	-----------------------------
+	Input:	     print((7+5))
+	Target:      12.
+	-----------------------------
+	Input:	     print((1*3))
+	Target:      3.
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	-----------------------------
+	Input:	     print((9-10))
+	Target:      -1.
+	-----------------------------
+	Input:	     print((6-6))
+	Target:      0.
+	-----------------------------
+	Input:	     print((2*2))
+	Target:      4.
+	-----------------------------
+(Total number of data were: 21
+Few exemplary newly generated samples from the Test dataset:
+	Input:	     print((60*1))
+	Target:      60.
+	-----------------------------
+	Input:	     print((17+43))
+	Target:      60.
+	-----------------------------
+	Input:	     print(53)
+	Target:      53.
+	-----------------------------
+	Input:	     print((55*3))
+	Target:      165.
+	-----------------------------
+	Input:	     print(100)
+	Target:      100.
+	-----------------------------
+	Input:	     print((2*19))
+	Target:      38.
+	-----------------------------
+	Input:	     print((88+78))
+	Target:      166.
+	-----------------------------
+	Input:	     print(54)
+	Target:      54.
+	-----------------------------
+	Input:	     print((6*70))
+	Target:      420.
+	-----------------------------
+	Input:	     print((4*97))
+	Target:      388.
+	-----------------------------
+	Input:	     print((53-98))
+	Target:      -45.
+	-----------------------------
+	Input:	     print(41)
+	Target:      41.
+	-----------------------------
+	Input:	     print((77+65))
+	Target:      142.
+	-----------------------------
+	Input:	     print((12*6))
+	Target:      72.
+	-----------------------------
+	Input:	     print((24+62))
+	Target:      86.
+	-----------------------------
+	Input:	     print((46-73))
+	Target:      -27.
+	-----------------------------
+	Input:	     print(22)
+	Target:      22.
+	-----------------------------
+	Input:	     print((70*2))
+	Target:      140.
+	-----------------------------
+	Input:	     print((41*7))
+	Target:      287.
+	-----------------------------
+	Input:	     print(71)
+	Target:      71.
+	-----------------------------
+	Input:	     print((61*5))
+	Target:      305.
+	-----------------------------
+(Total number of data were: 21
+Creating a RNN LSTM network.	Starting training.	epoch=1, Training acc.=8.39%, Validation acc.=42.89%, Test acc.=30.06%, current length=1, current nesting=1, characters per sec.=13141, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((3*2))
+	Target:      6.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((7*4))
+	Target:      28.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((1*5))
+	Target:      5.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((5*3))
+	Target:      15.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((8+10))
+	Target:      18.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((10+3))
+	Target:      13.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((5-3))
+	Target:      2.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((9-5))
+	Target:      4.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((1-3))
+	Target:      -2.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((6-2))
+	Target:      4.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((3*9))
+	Target:      27.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((1*6))
+	Target:      6.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((7-7))
+	Target:      0.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((3-5))
+	Target:      -2.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((3*9))
+	Target:      27.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((1-7))
+	Target:      -6.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((4*4))
+	Target:      16.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((4*8))
+	Target:      32.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((6-5))
+	Target:      1.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((10-10))
+	Target:      0.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((10-10))
+	Target:      0.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((3*5))
+	Target:      15.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((5-9))
+	Target:      -4.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((10-10))
+	Target:      0.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((7+3))
+	Target:      10.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((3-10))
+	Target:      -7.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((8*2))
+	Target:      16.
+	Prediction:  ...
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((6*3))
+	Target:      18.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((7*3))
+	Target:      21.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((8-8))
+	Target:      0.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((1+2))
+	Target:      3.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((9-4))
+	Target:      5.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((5+8))
+	Target:      13.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((2*2))
+	Target:      4.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((4-5))
+	Target:      -1.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((2*3))
+	Target:      6.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((9+2))
+	Target:      11.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((3*10))
+	Target:      30.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((4*10))
+	Target:      40.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((5-10))
+	Target:      -5.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((7-9))
+	Target:      -2.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((1*2))
+	Target:      2.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((2*6))
+	Target:      12.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((8-5))
+	Target:      3.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((2*4))
+	Target:      8.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((10*3))
+	Target:      30.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  ..
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print(73)
+	Target:      73.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((77-18))
+	Target:      59.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print(41)
+	Target:      41.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print(4)
+	Target:      4.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((3*61))
+	Target:      183.
+	Prediction:  ....
+	-----------------------------
+	Input:	     print((44*7))
+	Target:      308.
+	Prediction:  ....
+	-----------------------------
+	Input:	     print(41)
+	Target:      41.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((33-28))
+	Target:      5.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print(18)
+	Target:      18.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((97-77))
+	Target:      20.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print(41)
+	Target:      41.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((64*1))
+	Target:      64.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((1*70))
+	Target:      70.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print(11)
+	Target:      11.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((90+14))
+	Target:      104.
+	Prediction:  ....
+	-----------------------------
+	Input:	     print((29+6))
+	Target:      35.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((89+80))
+	Target:      169.
+	Prediction:  ....
+	-----------------------------
+	Input:	     print((34-83))
+	Target:      -49.
+	Prediction:  ....
+	-----------------------------
+	Input:	     print((6*11))
+	Target:      66.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((62-9))
+	Target:      53.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((68-10))
+	Target:      58.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((9-6))
+	Target:      3.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print(24)
+	Target:      24.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print(6)
+	Target:      6.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((95*5))
+	Target:      475.
+	Prediction:  ....
+	-----------------------------
+	Input:	     print((1*44))
+	Target:      44.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((76-38))
+	Target:      38.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print(90)
+	Target:      90.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print(71)
+	Target:      71.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print(71)
+	Target:      71.
+	Prediction:  ...
+	-----------------------------
+epoch=1, Training acc.=10.17%, Validation acc.=3.10%, Test acc.=7.81%, current length=1, current nesting=1, characters per sec.=13802, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((3*5))
+	Target:      15.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((7-4))
+	Target:      3.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((4*4))
+	Target:      16.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((4-3))
+	Target:      1.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((3-8))
+	Target:      -5.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((3*5))
+	Target:      15.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((8+8))
+	Target:      16.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((7*1))
+	Target:      7.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((1-7))
+	Target:      -6.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((8-3))
+	Target:      5.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((8*2))
+	Target:      16.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((3+8))
+	Target:      11.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((2+9))
+	Target:      11.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((3-10))
+	Target:      -7.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((1*6))
+	Target:      6.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((8+10))
+	Target:      18.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((6+1))
+	Target:      7.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((1*5))
+	Target:      5.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((4*4))
+	Target:      16.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((5*3))
+	Target:      15.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	Prediction:  44
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((9*4))
+	Target:      36.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((1*9))
+	Target:      9.
+	Prediction:  44
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((9*3))
+	Target:      27.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((9+2))
+	Target:      11.
+	Prediction:  444
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((1*3))
+	Target:      3.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((4+3))
+	Target:      7.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((8-5))
+	Target:      3.
+	Prediction:  44
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  44
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((9*4))
+	Target:      36.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((2*9))
+	Target:      18.
+	Prediction:  444
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  44
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  44
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((4-5))
+	Target:      -1.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((2*1))
+	Target:      2.
+	Prediction:  44
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  44
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  44
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((2*6))
+	Target:      12.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((3*3))
+	Target:      9.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((2+8))
+	Target:      10.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((2*1))
+	Target:      2.
+	Prediction:  44
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((3*4))
+	Target:      12.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((9+2))
+	Target:      11.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((8+3))
+	Target:      11.
+	Prediction:  444
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print(8)
+	Target:      8.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((4*5))
+	Target:      20.
+	Prediction:  444
+	-----------------------------
+	Input:	     print(84)
+	Target:      84.
+	Prediction:  444
+	-----------------------------
+	Input:	     print(17)
+	Target:      17.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((34-3))
+	Target:      31.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((35*2))
+	Target:      70.
+	Prediction:  444
+	-----------------------------
+	Input:	     print(66)
+	Target:      66.
+	Prediction:  444
+	-----------------------------
+	Input:	     print(23)
+	Target:      23.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((3*83))
+	Target:      249.
+	Prediction:  4444
+	-----------------------------
+	Input:	     print((86*4))
+	Target:      344.
+	Prediction:  4444
+	-----------------------------
+	Input:	     print((56+18))
+	Target:      74.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((37+30))
+	Target:      67.
+	Prediction:  444
+	-----------------------------
+	Input:	     print(67)
+	Target:      67.
+	Prediction:  444
+	-----------------------------
+	Input:	     print(72)
+	Target:      72.
+	Prediction:  444
+	-----------------------------
+	Input:	     print(42)
+	Target:      42.
+	Prediction:  444
+	-----------------------------
+	Input:	     print(24)
+	Target:      24.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((76*3))
+	Target:      228.
+	Prediction:  4444
+	-----------------------------
+	Input:	     print(98)
+	Target:      98.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((8*51))
+	Target:      408.
+	Prediction:  4444
+	-----------------------------
+	Input:	     print(8)
+	Target:      8.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((4*98))
+	Target:      392.
+	Prediction:  4444
+	-----------------------------
+	Input:	     print(90)
+	Target:      90.
+	Prediction:  444
+	-----------------------------
+	Input:	     print(24)
+	Target:      24.
+	Prediction:  444
+	-----------------------------
+	Input:	     print(53)
+	Target:      53.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((6*2))
+	Target:      12.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((71*4))
+	Target:      284.
+	Prediction:  4444
+	-----------------------------
+	Input:	     print((7-71))
+	Target:      -64.
+	Prediction:  4444
+	-----------------------------
+	Input:	     print((16-52))
+	Target:      -36.
+	Prediction:  4444
+	-----------------------------
+	Input:	     print((99-7))
+	Target:      92.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((95-43))
+	Target:      52.
+	Prediction:  444
+	-----------------------------
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     print((3-4))
+	Target:      -1.
+	-----------------------------
+	Input:	     print((7+6))
+	Target:      13.
+	-----------------------------
+	Input:	     print((2-2))
+	Target:      0.
+	-----------------------------
+	Input:	     print((10*2))
+	Target:      20.
+	-----------------------------
+	Input:	     print((5*3))
+	Target:      15.
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	-----------------------------
+	Input:	     print((5*2))
+	Target:      10.
+	-----------------------------
+	Input:	     print((2+9))
+	Target:      11.
+	-----------------------------
+	Input:	     print((5-5))
+	Target:      0.
+	-----------------------------
+	Input:	     print((8-3))
+	Target:      5.
+	-----------------------------
+	Input:	     print((2-6))
+	Target:      -4.
+	-----------------------------
+	Input:	     print((1-4))
+	Target:      -3.
+	-----------------------------
+	Input:	     print((8-1))
+	Target:      7.
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	-----------------------------
+	Input:	     print((4*4))
+	Target:      16.
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	-----------------------------
+	Input:	     print((8-3))
+	Target:      5.
+	-----------------------------
+	Input:	     print((7-4))
+	Target:      3.
+	-----------------------------
+	Input:	     print((1-7))
+	Target:      -6.
+	-----------------------------
+	Input:	     print((8+5))
+	Target:      13.
+	-----------------------------
+(Total number of data were: 21
+epoch=2, Training acc.=9.13%, Validation acc.=4.56%, Test acc.=6.10%, current length=1, current nesting=1, characters per sec.=8556, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((4*4))
+	Target:      16.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((5*2))
+	Target:      10.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((7+6))
+	Target:      13.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((5-5))
+	Target:      0.
+	Prediction:  55
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  55
+	-----------------------------
+	Input:	     print((7-4))
+	Target:      3.
+	Prediction:  55
+	-----------------------------
+	Input:	     print((5+9))
+	Target:      14.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((1*6))
+	Target:      6.
+	Prediction:  55
+	-----------------------------
+	Input:	     print((4-7))
+	Target:      -3.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((9-8))
+	Target:      1.
+	Prediction:  55
+	-----------------------------
+	Input:	     print((1-7))
+	Target:      -6.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((7+3))
+	Target:      10.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((6+8))
+	Target:      14.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	Prediction:  55
+	-----------------------------
+	Input:	     print((1*5))
+	Target:      5.
+	Prediction:  55
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	Prediction:  55
+	-----------------------------
+	Input:	     print((8-1))
+	Target:      7.
+	Prediction:  55
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	Prediction:  55
+	-----------------------------
+	Input:	     print((4*4))
+	Target:      16.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((3*9))
+	Target:      27.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	Prediction:  55
+	-----------------------------
+	Input:	     print((10+3))
+	Target:      13.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	Prediction:  55
+	-----------------------------
+	Input:	     print((7*1))
+	Target:      7.
+	Prediction:  55
+	-----------------------------
+	Input:	     print((6-8))
+	Target:      -2.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	Prediction:  55
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	Prediction:  55
+	-----------------------------
+	Input:	     print((4*4))
+	Target:      16.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((9-8))
+	Target:      1.
+	Prediction:  55
+	-----------------------------
+	Input:	     print((7-7))
+	Target:      0.
+	Prediction:  55
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  55
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  55
+	-----------------------------
+	Input:	     print((2*1))
+	Target:      2.
+	Prediction:  55
+	-----------------------------
+	Input:	     print((6-1))
+	Target:      5.
+	Prediction:  55
+	-----------------------------
+	Input:	     print((3*4))
+	Target:      12.
+	Prediction:  555
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  55
+	-----------------------------
+	Input:	     print((2*6))
+	Target:      12.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((2-9))
+	Target:      -7.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((1*2))
+	Target:      2.
+	Prediction:  55
+	-----------------------------
+	Input:	     print((9+6))
+	Target:      15.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((7*2))
+	Target:      14.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((3+5))
+	Target:      8.
+	Prediction:  55
+	-----------------------------
+	Input:	     print((7*3))
+	Target:      21.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((2*6))
+	Target:      12.
+	Prediction:  555
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  55
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  55
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  55
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  55
+	-----------------------------
+	Input:	     print((9*3))
+	Target:      27.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((2-4))
+	Target:      -2.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((8-5))
+	Target:      3.
+	Prediction:  55
+	-----------------------------
+	Input:	     print((9*3))
+	Target:      27.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((7-6))
+	Target:      1.
+	Prediction:  55
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  55
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  55
+	-----------------------------
+	Input:	     print((3*3))
+	Target:      9.
+	Prediction:  55
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  55
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  55
+	-----------------------------
+	Input:	     print((4*3))
+	Target:      12.
+	Prediction:  555
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  55
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print(53)
+	Target:      53.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((3*72))
+	Target:      216.
+	Prediction:  5555
+	-----------------------------
+	Input:	     print((59+35))
+	Target:      94.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((68+23))
+	Target:      91.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((4*74))
+	Target:      296.
+	Prediction:  5555
+	-----------------------------
+	Input:	     print((96-68))
+	Target:      28.
+	Prediction:  555
+	-----------------------------
+	Input:	     print(18)
+	Target:      18.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((27*2))
+	Target:      54.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((87*2))
+	Target:      174.
+	Prediction:  5555
+	-----------------------------
+	Input:	     print((2*51))
+	Target:      102.
+	Prediction:  5555
+	-----------------------------
+	Input:	     print(98)
+	Target:      98.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((30*1))
+	Target:      30.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((30+37))
+	Target:      67.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((84*5))
+	Target:      420.
+	Prediction:  5555
+	-----------------------------
+	Input:	     print((7*41))
+	Target:      287.
+	Prediction:  5555
+	-----------------------------
+	Input:	     print((43-18))
+	Target:      25.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((46+41))
+	Target:      87.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((87-51))
+	Target:      36.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((2*8))
+	Target:      16.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((1*78))
+	Target:      78.
+	Prediction:  555
+	-----------------------------
+	Input:	     print(48)
+	Target:      48.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((64+82))
+	Target:      146.
+	Prediction:  5555
+	-----------------------------
+	Input:	     print((7*64))
+	Target:      448.
+	Prediction:  5555
+	-----------------------------
+	Input:	     print(54)
+	Target:      54.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((79+99))
+	Target:      178.
+	Prediction:  5555
+	-----------------------------
+	Input:	     print(85)
+	Target:      85.
+	Prediction:  555
+	-----------------------------
+	Input:	     print(85)
+	Target:      85.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((20+51))
+	Target:      71.
+	Prediction:  555
+	-----------------------------
+	Input:	     print((21+87))
+	Target:      108.
+	Prediction:  5555
+	-----------------------------
+	Input:	     print(53)
+	Target:      53.
+	Prediction:  555
+	-----------------------------
+epoch=2, Training acc.=18.19%, Validation acc.=23.03%, Test acc.=15.44%, current length=1, current nesting=1, characters per sec.=13679, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((1-3))
+	Target:      -2.
+	Prediction:  0..
+	-----------------------------
+	Input:	     print((10-8))
+	Target:      2.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print((7*4))
+	Target:      28.
+	Prediction:  6..
+	-----------------------------
+	Input:	     print((1-4))
+	Target:      -3.
+	Prediction:  3..
+	-----------------------------
+	Input:	     print((7*1))
+	Target:      7.
+	Prediction:  33
+	-----------------------------
+	Input:	     print((7*4))
+	Target:      28.
+	Prediction:  36.
+	-----------------------------
+	Input:	     print((5+4))
+	Target:      9.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((4*4))
+	Target:      16.
+	Prediction:  5.3
+	-----------------------------
+	Input:	     print((6-8))
+	Target:      -2.
+	Prediction:  2..
+	-----------------------------
+	Input:	     print((7*4))
+	Target:      28.
+	Prediction:  33.
+	-----------------------------
+	Input:	     print((10-3))
+	Target:      7.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((2+9))
+	Target:      11.
+	Prediction:  2i*
+	-----------------------------
+	Input:	     print((2*7))
+	Target:      14.
+	Prediction:  63*
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	Prediction:  2n
+	-----------------------------
+	Input:	     print((10*2))
+	Target:      20.
+	Prediction:  55.
+	-----------------------------
+	Input:	     print((1*6))
+	Target:      6.
+	Prediction:  2n
+	-----------------------------
+	Input:	     print((9-8))
+	Target:      1.
+	Prediction:  3.
+	-----------------------------
+	Input:	     print((5+4))
+	Target:      9.
+	Prediction:  3.
+	-----------------------------
+	Input:	     print((5*2))
+	Target:      10.
+	Prediction:  ..5
+	-----------------------------
+	Input:	     print((5+4))
+	Target:      9.
+	Prediction:  3.
+	-----------------------------
+	Input:	     print((6+8))
+	Target:      14.
+	Prediction:  ..3
+	-----------------------------
+	Input:	     print((2+1))
+	Target:      3.
+	Prediction:  3.
+	-----------------------------
+	Input:	     print((5*3))
+	Target:      15.
+	Prediction:  .2n
+	-----------------------------
+	Input:	     print((10-10))
+	Target:      0.
+	Prediction:  58
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((1-4))
+	Target:      -3.
+	Prediction:  .23
+	-----------------------------
+	Input:	     print((5-5))
+	Target:      0.
+	Prediction:  23
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  3.
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  2.
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	Prediction:  2.
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((4*10))
+	Target:      40.
+	Prediction:  633
+	-----------------------------
+	Input:	     print((5-10))
+	Target:      -5.
+	Prediction:  6.8
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  6(
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  3.
+	-----------------------------
+	Input:	     print((2*3))
+	Target:      6.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print((3*10))
+	Target:      30.
+	Prediction:  51.
+	-----------------------------
+	Input:	     print((10-6))
+	Target:      4.
+	Prediction:  3*
+	-----------------------------
+	Input:	     print((1*2))
+	Target:      2.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print((8+4))
+	Target:      12.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print((3+6))
+	Target:      9.
+	Prediction:  5n
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  32
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  6)
+	-----------------------------
+	Input:	     print((3-3))
+	Target:      0.
+	Prediction:  51
+	-----------------------------
+	Input:	     print((3*4))
+	Target:      12.
+	Prediction:  5.3
+	-----------------------------
+	Input:	     print((7*3))
+	Target:      21.
+	Prediction:  5..
+	-----------------------------
+	Input:	     print((4*10))
+	Target:      40.
+	Prediction:  625
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  63
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  68
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print((2*5))
+	Target:      10.
+	Prediction:  33.
+	-----------------------------
+	Input:	     print((1*2))
+	Target:      2.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print((2*4))
+	Target:      8.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((4*3))
+	Target:      12.
+	Prediction:  5..
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  .6
+	-----------------------------
+	Input:	     print((4*3))
+	Target:      12.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print((2*2))
+	Target:      4.
+	Prediction:  35
+	-----------------------------
+	Input:	     print((2*1))
+	Target:      2.
+	Prediction:  41
+	-----------------------------
+	Input:	     print((6-4))
+	Target:      2.
+	Prediction:  33
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print(6)
+	Target:      6.
+	Prediction:  9.
+	-----------------------------
+	Input:	     print((3*61))
+	Target:      183.
+	Prediction:  1.1.
+	-----------------------------
+	Input:	     print((75+29))
+	Target:      104.
+	Prediction:  6.p)
+	-----------------------------
+	Input:	     print((99-12))
+	Target:      87.
+	Prediction:  62.
+	-----------------------------
+	Input:	     print((2*27))
+	Target:      54.
+	Prediction:  3nn
+	-----------------------------
+	Input:	     print((8*3))
+	Target:      24.
+	Prediction:  63.
+	-----------------------------
+	Input:	     print(84)
+	Target:      84.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((67+82))
+	Target:      149.
+	Prediction:  159.
+	-----------------------------
+	Input:	     print((22-49))
+	Target:      -27.
+	Prediction:  5.33
+	-----------------------------
+	Input:	     print((29*6))
+	Target:      174.
+	Prediction:  .33n
+	-----------------------------
+	Input:	     print(60)
+	Target:      60.
+	Prediction:  13.
+	-----------------------------
+	Input:	     print(54)
+	Target:      54.
+	Prediction:  .).
+	-----------------------------
+	Input:	     print(79)
+	Target:      79.
+	Prediction:  .6.
+	-----------------------------
+	Input:	     print(49)
+	Target:      49.
+	Prediction:  0..
+	-----------------------------
+	Input:	     print((99+22))
+	Target:      121.
+	Prediction:  n9()
+	-----------------------------
+	Input:	     print((5*16))
+	Target:      80.
+	Prediction:  43.
+	-----------------------------
+	Input:	     print((57+97))
+	Target:      154.
+	Prediction:  ..3.
+	-----------------------------
+	Input:	     print((3*29))
+	Target:      87.
+	Prediction:  2..
+	-----------------------------
+	Input:	     print(85)
+	Target:      85.
+	Prediction:  2.)
+	-----------------------------
+	Input:	     print((3*56))
+	Target:      168.
+	Prediction:  ..33
+	-----------------------------
+	Input:	     print((3+77))
+	Target:      80.
+	Prediction:  4.3
+	-----------------------------
+	Input:	     print((2*100))
+	Target:      200.
+	Prediction:  +.nn
+	-----------------------------
+	Input:	     print((7*5))
+	Target:      35.
+	Prediction:  6.n
+	-----------------------------
+	Input:	     print((100*6))
+	Target:      600.
+	Prediction:  3.2.
+	-----------------------------
+	Input:	     print(18)
+	Target:      18.
+	Prediction:  235
+	-----------------------------
+	Input:	     print((87-99))
+	Target:      -12.
+	Prediction:  .333
+	-----------------------------
+	Input:	     print((2*80))
+	Target:      160.
+	Prediction:  33(.
+	-----------------------------
+	Input:	     print(54)
+	Target:      54.
+	Prediction:  362
+	-----------------------------
+	Input:	     print(8)
+	Target:      8.
+	Prediction:  .2
+	-----------------------------
+	Input:	     print(84)
+	Target:      84.
+	Prediction:  22.
+	-----------------------------
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     print((7-10))
+	Target:      -3.
+	-----------------------------
+	Input:	     print((1+5))
+	Target:      6.
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	-----------------------------
+	Input:	     print((7-4))
+	Target:      3.
+	-----------------------------
+	Input:	     print((6-2))
+	Target:      4.
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	-----------------------------
+	Input:	     print((4+10))
+	Target:      14.
+	-----------------------------
+	Input:	     print((7*1))
+	Target:      7.
+	-----------------------------
+	Input:	     print((10-8))
+	Target:      2.
+	-----------------------------
+	Input:	     print((1-4))
+	Target:      -3.
+	-----------------------------
+	Input:	     print((10-8))
+	Target:      2.
+	-----------------------------
+	Input:	     print((1+5))
+	Target:      6.
+	-----------------------------
+	Input:	     print((7*1))
+	Target:      7.
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	-----------------------------
+	Input:	     print((4*4))
+	Target:      16.
+	-----------------------------
+	Input:	     print((8+5))
+	Target:      13.
+	-----------------------------
+	Input:	     print((3-10))
+	Target:      -7.
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	-----------------------------
+	Input:	     print((6-8))
+	Target:      -2.
+	-----------------------------
+	Input:	     print((5-5))
+	Target:      0.
+	-----------------------------
+	Input:	     print((3*5))
+	Target:      15.
+	-----------------------------
+(Total number of data were: 21
+epoch=3, Training acc.=20.72%, Validation acc.=35.91%, Test acc.=28.91%, current length=1, current nesting=1, characters per sec.=8552, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((3*1))
+	Target:      3.
+	Prediction:  --
+	-----------------------------
+	Input:	     print((4*4))
+	Target:      16.
+	Prediction:  -6.
+	-----------------------------
+	Input:	     print((8+8))
+	Target:      16.
+	Prediction:  -6.
+	-----------------------------
+	Input:	     print((3-5))
+	Target:      -2.
+	Prediction:  -..
+	-----------------------------
+	Input:	     print((1+5))
+	Target:      6.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print((6+3))
+	Target:      9.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print((8-9))
+	Target:      -1.
+	Prediction:  --6
+	-----------------------------
+	Input:	     print((4-3))
+	Target:      1.
+	Prediction:  -6
+	-----------------------------
+	Input:	     print((2+9))
+	Target:      11.
+	Prediction:  6..
+	-----------------------------
+	Input:	     print((4*9))
+	Target:      36.
+	Prediction:  -.-
+	-----------------------------
+	Input:	     print((5-9))
+	Target:      -4.
+	Prediction:  -.-
+	-----------------------------
+	Input:	     print((10+5))
+	Target:      15.
+	Prediction:  .-.
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print((7-7))
+	Target:      0.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print((4*9))
+	Target:      36.
+	Prediction:  --.
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	Prediction:  --
+	-----------------------------
+	Input:	     print((7*4))
+	Target:      28.
+	Prediction:  ---
+	-----------------------------
+	Input:	     print((4-3))
+	Target:      1.
+	Prediction:  1-
+	-----------------------------
+	Input:	     print((5*3))
+	Target:      15.
+	Prediction:  --.
+	-----------------------------
+	Input:	     print((5*2))
+	Target:      10.
+	Prediction:  ---
+	-----------------------------
+	Input:	     print((6+1))
+	Target:      7.
+	Prediction:  6-
+	-----------------------------
+	Input:	     print((7*4))
+	Target:      28.
+	Prediction:  --.
+	-----------------------------
+	Input:	     print((6+4))
+	Target:      10.
+	Prediction:  -6-
+	-----------------------------
+	Input:	     print((1*5))
+	Target:      5.
+	Prediction:  --
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	Prediction:  --
+	-----------------------------
+	Input:	     print((8*2))
+	Target:      16.
+	Prediction:  -6.
+	-----------------------------
+	Input:	     print((7*1))
+	Target:      7.
+	Prediction:  -6
+	-----------------------------
+	Input:	     print((6+8))
+	Target:      14.
+	Prediction:  --.
+	-----------------------------
+	Input:	     print((7-10))
+	Target:      -3.
+	Prediction:  -..
+	-----------------------------
+	Input:	     print((4*4))
+	Target:      16.
+	Prediction:  --.
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((1+8))
+	Target:      9.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((10+9))
+	Target:      19.
+	Prediction:  -61
+	-----------------------------
+	Input:	     print((10*3))
+	Target:      30.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print((4-5))
+	Target:      -1.
+	Prediction:  ---
+	-----------------------------
+	Input:	     print((2*5))
+	Target:      10.
+	Prediction:  .16
+	-----------------------------
+	Input:	     print((4*3))
+	Target:      12.
+	Prediction:  16.
+	-----------------------------
+	Input:	     print((2*1))
+	Target:      2.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((2*2))
+	Target:      4.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print((4*3))
+	Target:      12.
+	Prediction:  -1.
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  --
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((4+4))
+	Target:      8.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((5-2))
+	Target:      3.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print((2*2))
+	Target:      4.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print((4+9))
+	Target:      13.
+	Prediction:  -..
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((2*9))
+	Target:      18.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((2*10))
+	Target:      20.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((7*3))
+	Target:      21.
+	Prediction:  --1
+	-----------------------------
+	Input:	     print((9*3))
+	Target:      27.
+	Prediction:  -..
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((7+9))
+	Target:      16.
+	Prediction:  -1.
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print((1*9))
+	Target:      9.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  ..
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print(18)
+	Target:      18.
+	Prediction:  -..
+	-----------------------------
+	Input:	     print(2)
+	Target:      2.
+	Prediction:  1-
+	-----------------------------
+	Input:	     print((41*7))
+	Target:      287.
+	Prediction:  --..
+	-----------------------------
+	Input:	     print(4)
+	Target:      4.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print(90)
+	Target:      90.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print((85*4))
+	Target:      340.
+	Prediction:  -...
+	-----------------------------
+	Input:	     print(100)
+	Target:      100.
+	Prediction:  .6..
+	-----------------------------
+	Input:	     print(53)
+	Target:      53.
+	Prediction:  -..
+	-----------------------------
+	Input:	     print(49)
+	Target:      49.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((14+42))
+	Target:      56.
+	Prediction:  .1.
+	-----------------------------
+	Input:	     print(55)
+	Target:      55.
+	Prediction:  -..
+	-----------------------------
+	Input:	     print((84*8))
+	Target:      672.
+	Prediction:  ....
+	-----------------------------
+	Input:	     print(54)
+	Target:      54.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print((81-96))
+	Target:      -15.
+	Prediction:  -...
+	-----------------------------
+	Input:	     print((88+69))
+	Target:      157.
+	Prediction:  -1..
+	-----------------------------
+	Input:	     print(35)
+	Target:      35.
+	Prediction:  -..
+	-----------------------------
+	Input:	     print((28-13))
+	Target:      15.
+	Prediction:  -1.
+	-----------------------------
+	Input:	     print((20-39))
+	Target:      -19.
+	Prediction:  -.1-
+	-----------------------------
+	Input:	     print(85)
+	Target:      85.
+	Prediction:  -..
+	-----------------------------
+	Input:	     print((8*5))
+	Target:      40.
+	Prediction:  6..
+	-----------------------------
+	Input:	     print(41)
+	Target:      41.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print((9-42))
+	Target:      -33.
+	Prediction:  -...
+	-----------------------------
+	Input:	     print((59*6))
+	Target:      354.
+	Prediction:  --..
+	-----------------------------
+	Input:	     print((79-45))
+	Target:      34.
+	Prediction:  -..
+	-----------------------------
+	Input:	     print(72)
+	Target:      72.
+	Prediction:  -..
+	-----------------------------
+	Input:	     print((8*48))
+	Target:      384.
+	Prediction:  ....
+	-----------------------------
+	Input:	     print(60)
+	Target:      60.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print(53)
+	Target:      53.
+	Prediction:  -..
+	-----------------------------
+	Input:	     print(73)
+	Target:      73.
+	Prediction:  -.-
+	-----------------------------
+	Input:	     print((62-43))
+	Target:      19.
+	Prediction:  11.
+	-----------------------------
+epoch=3, Training acc.=25.10%, Validation acc.=3.72%, Test acc.=7.67%, current length=1, current nesting=1, characters per sec.=13798, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((6+2))
+	Target:      8.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((4*9))
+	Target:      36.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((4+10))
+	Target:      14.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((7+1))
+	Target:      8.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((3-8))
+	Target:      -5.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((5*3))
+	Target:      15.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  4i
+	-----------------------------
+	Input:	     print((3-4))
+	Target:      -1.
+	Prediction:  244
+	-----------------------------
+	Input:	     print((8+10))
+	Target:      18.
+	Prediction:  442
+	-----------------------------
+	Input:	     print((3*9))
+	Target:      27.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((3-8))
+	Target:      -5.
+	Prediction:  244
+	-----------------------------
+	Input:	     print((4+5))
+	Target:      9.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((8+9))
+	Target:      17.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((1*5))
+	Target:      5.
+	Prediction:  42
+	-----------------------------
+	Input:	     print((2+9))
+	Target:      11.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((3-5))
+	Target:      -2.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((7-4))
+	Target:      3.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((8-1))
+	Target:      7.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((4+7))
+	Target:      11.
+	Prediction:  424
+	-----------------------------
+	Input:	     print((4*9))
+	Target:      36.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((1-4))
+	Target:      -3.
+	Prediction:  424
+	-----------------------------
+	Input:	     print((1*5))
+	Target:      5.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((7-10))
+	Target:      -3.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((8-1))
+	Target:      7.
+	Prediction:  24
+	-----------------------------
+	Input:	     print((1-4))
+	Target:      -3.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((5+9))
+	Target:      14.
+	Prediction:  444
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((4-5))
+	Target:      -1.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((1*3))
+	Target:      3.
+	Prediction:  4t
+	-----------------------------
+	Input:	     print((2-8))
+	Target:      -6.
+	Prediction:  444
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((3*4))
+	Target:      12.
+	Prediction:  144
+	-----------------------------
+	Input:	     print((3*10))
+	Target:      30.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((1*3))
+	Target:      3.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((7+9))
+	Target:      16.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((9+2))
+	Target:      11.
+	Prediction:  244
+	-----------------------------
+	Input:	     print((9*4))
+	Target:      36.
+	Prediction:  424
+	-----------------------------
+	Input:	     print((2-1))
+	Target:      1.
+	Prediction:  44
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  44
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  44
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((1*9))
+	Target:      9.
+	Prediction:  24
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  44
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  4t
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((1*2))
+	Target:      2.
+	Prediction:  44
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  44
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((4*3))
+	Target:      12.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((3*4))
+	Target:      12.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((6*4))
+	Target:      24.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((2*6))
+	Target:      12.
+	Prediction:  444
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((8+7))
+	Target:      15.
+	Prediction:  444
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((9*3))
+	Target:      27.
+	Prediction:  444
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print((8*22))
+	Target:      176.
+	Prediction:  4444
+	-----------------------------
+	Input:	     print((5*1))
+	Target:      5.
+	Prediction:  44
+	-----------------------------
+	Input:	     print(91)
+	Target:      91.
+	Prediction:  444
+	-----------------------------
+	Input:	     print(42)
+	Target:      42.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((21-5))
+	Target:      16.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((7*49))
+	Target:      343.
+	Prediction:  2444
+	-----------------------------
+	Input:	     print(49)
+	Target:      49.
+	Prediction:  244
+	-----------------------------
+	Input:	     print(54)
+	Target:      54.
+	Prediction:  442
+	-----------------------------
+	Input:	     print((30-99))
+	Target:      -69.
+	Prediction:  4444
+	-----------------------------
+	Input:	     print(49)
+	Target:      49.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((31*8))
+	Target:      248.
+	Prediction:  4444
+	-----------------------------
+	Input:	     print((71*6))
+	Target:      426.
+	Prediction:  4444
+	-----------------------------
+	Input:	     print((32-91))
+	Target:      -59.
+	Prediction:  4444
+	-----------------------------
+	Input:	     print((63+53))
+	Target:      116.
+	Prediction:  4444
+	-----------------------------
+	Input:	     print((56*7))
+	Target:      392.
+	Prediction:  4444
+	-----------------------------
+	Input:	     print(71)
+	Target:      71.
+	Prediction:  444
+	-----------------------------
+	Input:	     print(54)
+	Target:      54.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((14*2))
+	Target:      28.
+	Prediction:  444
+	-----------------------------
+	Input:	     print(86)
+	Target:      86.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((85+64))
+	Target:      149.
+	Prediction:  4444
+	-----------------------------
+	Input:	     print((66-74))
+	Target:      -8.
+	Prediction:  444
+	-----------------------------
+	Input:	     print(72)
+	Target:      72.
+	Prediction:  444
+	-----------------------------
+	Input:	     print((82*2))
+	Target:      164.
+	Prediction:  4444
+	-----------------------------
+	Input:	     print((31-83))
+	Target:      -52.
+	Prediction:  4444
+	-----------------------------
+	Input:	     print(53)
+	Target:      53.
+	Prediction:  442
+	-----------------------------
+	Input:	     print((56-59))
+	Target:      -3.
+	Prediction:  444
+	-----------------------------
+	Input:	     print(72)
+	Target:      72.
+	Prediction:  244
+	-----------------------------
+	Input:	     print((8*68))
+	Target:      544.
+	Prediction:  4444
+	-----------------------------
+	Input:	     print((3*41))
+	Target:      123.
+	Prediction:  4444
+	-----------------------------
+	Input:	     print((1*82))
+	Target:      82.
+	Prediction:  444
+	-----------------------------
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     print((5*3))
+	Target:      15.
+	-----------------------------
+	Input:	     print((5-9))
+	Target:      -4.
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	-----------------------------
+	Input:	     print((4-7))
+	Target:      -3.
+	-----------------------------
+	Input:	     print((3-8))
+	Target:      -5.
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	-----------------------------
+	Input:	     print((8-1))
+	Target:      7.
+	-----------------------------
+	Input:	     print((6-2))
+	Target:      4.
+	-----------------------------
+	Input:	     print((5+3))
+	Target:      8.
+	-----------------------------
+	Input:	     print((7*1))
+	Target:      7.
+	-----------------------------
+	Input:	     print((4-3))
+	Target:      1.
+	-----------------------------
+	Input:	     print((7*1))
+	Target:      7.
+	-----------------------------
+	Input:	     print((10+4))
+	Target:      14.
+	-----------------------------
+	Input:	     print((5-5))
+	Target:      0.
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	-----------------------------
+	Input:	     print((3-4))
+	Target:      -1.
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	-----------------------------
+	Input:	     print((5*3))
+	Target:      15.
+	-----------------------------
+	Input:	     print((4+5))
+	Target:      9.
+	-----------------------------
+	Input:	     print((1*6))
+	Target:      6.
+	-----------------------------
+(Total number of data were: 21
+epoch=4, Training acc.=27.44%, Validation acc.=39.72%, Test acc.=28.43%, current length=1, current nesting=1, characters per sec.=8567, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((4*4))
+	Target:      16.
+	Prediction:  1.n
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((3*5))
+	Target:      15.
+	Prediction:  88.
+	-----------------------------
+	Input:	     print((1*6))
+	Target:      6.
+	Prediction:  8.
+	-----------------------------
+	Input:	     print((6+10))
+	Target:      16.
+	Prediction:  8..
+	-----------------------------
+	Input:	     print((4*4))
+	Target:      16.
+	Prediction:  8..
+	-----------------------------
+	Input:	     print((5-5))
+	Target:      0.
+	Prediction:  8.
+	-----------------------------
+	Input:	     print((1*5))
+	Target:      5.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((5+3))
+	Target:      8.
+	Prediction:  6p
+	-----------------------------
+	Input:	     print((2-6))
+	Target:      -4.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((7*1))
+	Target:      7.
+	Prediction:  8.
+	-----------------------------
+	Input:	     print((2+9))
+	Target:      11.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print((10+3))
+	Target:      13.
+	Prediction:  .*.
+	-----------------------------
+	Input:	     print((4*8))
+	Target:      32.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print((8-9))
+	Target:      -1.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((8-3))
+	Target:      5.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print((2+10))
+	Target:      12.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((10-10))
+	Target:      0.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print((2+1))
+	Target:      3.
+	Prediction:  8.
+	-----------------------------
+	Input:	     print((10-3))
+	Target:      7.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((5*3))
+	Target:      15.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((9-5))
+	Target:      4.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((3-10))
+	Target:      -7.
+	Prediction:  8..
+	-----------------------------
+	Input:	     print((7-4))
+	Target:      3.
+	Prediction:  8.
+	-----------------------------
+	Input:	     print((3*5))
+	Target:      15.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((9-5))
+	Target:      4.
+	Prediction:  8.
+	-----------------------------
+	Input:	     print((8+9))
+	Target:      17.
+	Prediction:  8..
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	Prediction:  4.
+	-----------------------------
+	Input:	     print((7*4))
+	Target:      28.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	Prediction:  8.
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((1-6))
+	Target:      -5.
+	Prediction:  88.
+	-----------------------------
+	Input:	     print((9*4))
+	Target:      36.
+	Prediction:  8..
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  8.
+	-----------------------------
+	Input:	     print((9-10))
+	Target:      -1.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((2*10))
+	Target:      20.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((3*10))
+	Target:      30.
+	Prediction:  8.*
+	-----------------------------
+	Input:	     print((2*4))
+	Target:      8.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  8.
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  8.
+	-----------------------------
+	Input:	     print((2+8))
+	Target:      10.
+	Prediction:  8..
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  8.
+	-----------------------------
+	Input:	     print((4*3))
+	Target:      12.
+	Prediction:  7..
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  4.
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  88
+	-----------------------------
+	Input:	     print((2*2))
+	Target:      4.
+	Prediction:  8.
+	-----------------------------
+	Input:	     print((4-6))
+	Target:      -2.
+	Prediction:  88.
+	-----------------------------
+	Input:	     print((9*3))
+	Target:      27.
+	Prediction:  8..
+	-----------------------------
+	Input:	     print((2*3))
+	Target:      6.
+	Prediction:  8.
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  42
+	-----------------------------
+	Input:	     print((3*3))
+	Target:      9.
+	Prediction:  68
+	-----------------------------
+	Input:	     print((4*10))
+	Target:      40.
+	Prediction:  8..
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  8.
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  8.
+	-----------------------------
+	Input:	     print((2*1))
+	Target:      2.
+	Prediction:  18
+	-----------------------------
+	Input:	     print((3*8))
+	Target:      24.
+	Prediction:  8..
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  .p
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  8.
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print((76+85))
+	Target:      161.
+	Prediction:  8...
+	-----------------------------
+	Input:	     print((52*7))
+	Target:      364.
+	Prediction:  8...
+	-----------------------------
+	Input:	     print(41)
+	Target:      41.
+	Prediction:  4n.
+	-----------------------------
+	Input:	     print((33+39))
+	Target:      72.
+	Prediction:  8..
+	-----------------------------
+	Input:	     print((94-34))
+	Target:      60.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print(85)
+	Target:      85.
+	Prediction:  8..
+	-----------------------------
+	Input:	     print((5+74))
+	Target:      79.
+	Prediction:  8..
+	-----------------------------
+	Input:	     print((96-65))
+	Target:      31.
+	Prediction:  8..
+	-----------------------------
+	Input:	     print((4*34))
+	Target:      136.
+	Prediction:  ....
+	-----------------------------
+	Input:	     print(36)
+	Target:      36.
+	Prediction:  8..
+	-----------------------------
+	Input:	     print(35)
+	Target:      35.
+	Prediction:  8..
+	-----------------------------
+	Input:	     print((1*28))
+	Target:      28.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((100+75))
+	Target:      175.
+	Prediction:  8..8
+	-----------------------------
+	Input:	     print((56-17))
+	Target:      39.
+	Prediction:  28.
+	-----------------------------
+	Input:	     print((3+99))
+	Target:      102.
+	Prediction:  8...
+	-----------------------------
+	Input:	     print(73)
+	Target:      73.
+	Prediction:  8..
+	-----------------------------
+	Input:	     print(86)
+	Target:      86.
+	Prediction:  8..
+	-----------------------------
+	Input:	     print((74-83))
+	Target:      -9.
+	Prediction:  6..
+	-----------------------------
+	Input:	     print((7*89))
+	Target:      623.
+	Prediction:  8...
+	-----------------------------
+	Input:	     print((71-27))
+	Target:      44.
+	Prediction:  8..
+	-----------------------------
+	Input:	     print((4*24))
+	Target:      96.
+	Prediction:  6..
+	-----------------------------
+	Input:	     print((45+90))
+	Target:      135.
+	Prediction:  8.6.
+	-----------------------------
+	Input:	     print((3*6))
+	Target:      18.
+	Prediction:  8..
+	-----------------------------
+	Input:	     print((61+36))
+	Target:      97.
+	Prediction:  8..
+	-----------------------------
+	Input:	     print((40*7))
+	Target:      280.
+	Prediction:  6...
+	-----------------------------
+	Input:	     print(17)
+	Target:      17.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((42*6))
+	Target:      252.
+	Prediction:  5...
+	-----------------------------
+	Input:	     print(73)
+	Target:      73.
+	Prediction:  6..
+	-----------------------------
+	Input:	     print(48)
+	Target:      48.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print((7-13))
+	Target:      -6.
+	Prediction:  .8.
+	-----------------------------
+epoch=4, Training acc.=32.76%, Validation acc.=7.85%, Test acc.=8.45%, current length=1, current nesting=1, characters per sec.=13897, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((5*3))
+	Target:      15.
+	Prediction:  166
+	-----------------------------
+	Input:	     print((5-9))
+	Target:      -4.
+	Prediction:  361
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	Prediction:  63
+	-----------------------------
+	Input:	     print((4-7))
+	Target:      -3.
+	Prediction:  336
+	-----------------------------
+	Input:	     print((3-8))
+	Target:      -5.
+	Prediction:  166
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	Prediction:  14
+	-----------------------------
+	Input:	     print((8-1))
+	Target:      7.
+	Prediction:  63
+	-----------------------------
+	Input:	     print((6-2))
+	Target:      4.
+	Prediction:  36
+	-----------------------------
+	Input:	     print((5+3))
+	Target:      8.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((7*1))
+	Target:      7.
+	Prediction:  36
+	-----------------------------
+	Input:	     print((4-3))
+	Target:      1.
+	Prediction:  33
+	-----------------------------
+	Input:	     print((7*1))
+	Target:      7.
+	Prediction:  33
+	-----------------------------
+	Input:	     print((10+4))
+	Target:      14.
+	Prediction:  133
+	-----------------------------
+	Input:	     print((5-5))
+	Target:      0.
+	Prediction:  63
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  43
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	Prediction:  16
+	-----------------------------
+	Input:	     print((3-4))
+	Target:      -1.
+	Prediction:  163
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	Prediction:  33
+	-----------------------------
+	Input:	     print((5*3))
+	Target:      15.
+	Prediction:  346
+	-----------------------------
+	Input:	     print((4+5))
+	Target:      9.
+	Prediction:  34
+	-----------------------------
+	Input:	     print((1*6))
+	Target:      6.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((4-3))
+	Target:      1.
+	Prediction:  46
+	-----------------------------
+	Input:	     print((7+3))
+	Target:      10.
+	Prediction:  336
+	-----------------------------
+	Input:	     print((9-5))
+	Target:      4.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((4*8))
+	Target:      32.
+	Prediction:  363
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  14
+	-----------------------------
+	Input:	     print((8-9))
+	Target:      -1.
+	Prediction:  623
+	-----------------------------
+	Input:	     print((3-10))
+	Target:      -7.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((1*6))
+	Target:      6.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((10-8))
+	Target:      2.
+	Prediction:  63
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  43
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  44
+	-----------------------------
+	Input:	     print((1*10))
+	Target:      10.
+	Prediction:  146
+	-----------------------------
+	Input:	     print((3*4))
+	Target:      12.
+	Prediction:  364
+	-----------------------------
+	Input:	     print((9+6))
+	Target:      15.
+	Prediction:  166
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  33
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  34
+	-----------------------------
+	Input:	     print((8+3))
+	Target:      11.
+	Prediction:  366
+	-----------------------------
+	Input:	     print((9+6))
+	Target:      15.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((2*6))
+	Target:      12.
+	Prediction:  161
+	-----------------------------
+	Input:	     print((1*3))
+	Target:      3.
+	Prediction:  36
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  16
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  66
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  16
+	-----------------------------
+	Input:	     print((5+8))
+	Target:      13.
+	Prediction:  366
+	-----------------------------
+	Input:	     print((1*10))
+	Target:      10.
+	Prediction:  636
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  53
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  16
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  33
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  13
+	-----------------------------
+	Input:	     print((2*4))
+	Target:      8.
+	Prediction:  16
+	-----------------------------
+	Input:	     print((2*1))
+	Target:      2.
+	Prediction:  33
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  31
+	-----------------------------
+	Input:	     print((1*2))
+	Target:      2.
+	Prediction:  13
+	-----------------------------
+	Input:	     print((7+9))
+	Target:      16.
+	Prediction:  166
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  62
+	-----------------------------
+	Input:	     print((1*9))
+	Target:      9.
+	Prediction:  66
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  64
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  66
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  13
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print(41)
+	Target:      41.
+	Prediction:  166
+	-----------------------------
+	Input:	     print(66)
+	Target:      66.
+	Prediction:  466
+	-----------------------------
+	Input:	     print((6-19))
+	Target:      -13.
+	Prediction:  4413
+	-----------------------------
+	Input:	     print(35)
+	Target:      35.
+	Prediction:  663
+	-----------------------------
+	Input:	     print((20+60))
+	Target:      80.
+	Prediction:  366
+	-----------------------------
+	Input:	     print((3*28))
+	Target:      84.
+	Prediction:  134
+	-----------------------------
+	Input:	     print(66)
+	Target:      66.
+	Prediction:  333
+	-----------------------------
+	Input:	     print(8)
+	Target:      8.
+	Prediction:  66
+	-----------------------------
+	Input:	     print(49)
+	Target:      49.
+	Prediction:  136
+	-----------------------------
+	Input:	     print(97)
+	Target:      97.
+	Prediction:  663
+	-----------------------------
+	Input:	     print((100-47))
+	Target:      53.
+	Prediction:  366
+	-----------------------------
+	Input:	     print(41)
+	Target:      41.
+	Prediction:  666
+	-----------------------------
+	Input:	     print(4)
+	Target:      4.
+	Prediction:  16
+	-----------------------------
+	Input:	     print((1*28))
+	Target:      28.
+	Prediction:  131
+	-----------------------------
+	Input:	     print(67)
+	Target:      67.
+	Prediction:  136
+	-----------------------------
+	Input:	     print(100)
+	Target:      100.
+	Prediction:  4363
+	-----------------------------
+	Input:	     print(48)
+	Target:      48.
+	Prediction:  361
+	-----------------------------
+	Input:	     print((100-8))
+	Target:      92.
+	Prediction:  334
+	-----------------------------
+	Input:	     print((69-81))
+	Target:      -12.
+	Prediction:  3336
+	-----------------------------
+	Input:	     print((77+50))
+	Target:      127.
+	Prediction:  3663
+	-----------------------------
+	Input:	     print((39+94))
+	Target:      133.
+	Prediction:  3666
+	-----------------------------
+	Input:	     print((1*96))
+	Target:      96.
+	Prediction:  333
+	-----------------------------
+	Input:	     print(8)
+	Target:      8.
+	Prediction:  16
+	-----------------------------
+	Input:	     print(22)
+	Target:      22.
+	Prediction:  336
+	-----------------------------
+	Input:	     print((66+62))
+	Target:      128.
+	Prediction:  3636
+	-----------------------------
+	Input:	     print((3*72))
+	Target:      216.
+	Prediction:  1266
+	-----------------------------
+	Input:	     print((65+21))
+	Target:      86.
+	Prediction:  363
+	-----------------------------
+	Input:	     print((71+88))
+	Target:      159.
+	Prediction:  3466
+	-----------------------------
+	Input:	     print(85)
+	Target:      85.
+	Prediction:  166
+	-----------------------------
+	Input:	     print((38*1))
+	Target:      38.
+	Prediction:  323
+	-----------------------------
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     print((10-10))
+	Target:      0.
+	-----------------------------
+	Input:	     print((3*5))
+	Target:      15.
+	-----------------------------
+	Input:	     print((7*1))
+	Target:      7.
+	-----------------------------
+	Input:	     print((2*7))
+	Target:      14.
+	-----------------------------
+	Input:	     print((5*3))
+	Target:      15.
+	-----------------------------
+	Input:	     print((8*2))
+	Target:      16.
+	-----------------------------
+	Input:	     print((2+1))
+	Target:      3.
+	-----------------------------
+	Input:	     print((2+10))
+	Target:      12.
+	-----------------------------
+	Input:	     print((6+2))
+	Target:      8.
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	-----------------------------
+	Input:	     print((9-3))
+	Target:      6.
+	-----------------------------
+	Input:	     print((6-8))
+	Target:      -2.
+	-----------------------------
+	Input:	     print((3-5))
+	Target:      -2.
+	-----------------------------
+	Input:	     print((8+5))
+	Target:      13.
+	-----------------------------
+	Input:	     print((4-3))
+	Target:      1.
+	-----------------------------
+	Input:	     print((2+3))
+	Target:      5.
+	-----------------------------
+	Input:	     print((8*2))
+	Target:      16.
+	-----------------------------
+	Input:	     print((3-4))
+	Target:      -1.
+	-----------------------------
+	Input:	     print((5*2))
+	Target:      10.
+	-----------------------------
+	Input:	     print((4*8))
+	Target:      32.
+	-----------------------------
+	Input:	     print((1*6))
+	Target:      6.
+	-----------------------------
+(Total number of data were: 21
+epoch=5, Training acc.=24.85%, Validation acc.=10.19%, Test acc.=12.66%, current length=1, current nesting=1, characters per sec.=8625, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((2+1))
+	Target:      3.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((8+10))
+	Target:      18.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((2+2))
+	Target:      4.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((3+8))
+	Target:      11.
+	Prediction:  611
+	-----------------------------
+	Input:	     print((3+8))
+	Target:      11.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((6+2))
+	Target:      8.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((5+4))
+	Target:      9.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((4*4))
+	Target:      16.
+	Prediction:  6..
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print((10+5))
+	Target:      15.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((1*5))
+	Target:      5.
+	Prediction:  06
+	-----------------------------
+	Input:	     print((3+1))
+	Target:      4.
+	Prediction:  65
+	-----------------------------
+	Input:	     print((1+4))
+	Target:      5.
+	Prediction:  60
+	-----------------------------
+	Input:	     print((5+4))
+	Target:      9.
+	Prediction:  .6
+	-----------------------------
+	Input:	     print((5*2))
+	Target:      10.
+	Prediction:  56.
+	-----------------------------
+	Input:	     print((2+9))
+	Target:      11.
+	Prediction:  66.
+	-----------------------------
+	Input:	     print((5-3))
+	Target:      2.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((9-5))
+	Target:      4.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print((5*2))
+	Target:      10.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((10-10))
+	Target:      0.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((6+1))
+	Target:      7.
+	Prediction:  16
+	-----------------------------
+	Input:	     print((5+5))
+	Target:      10.
+	Prediction:  66.
+	-----------------------------
+	Input:	     print((3*5))
+	Target:      15.
+	Prediction:  66.
+	-----------------------------
+	Input:	     print((8*2))
+	Target:      16.
+	Prediction:  66.
+	-----------------------------
+	Input:	     print((1+4))
+	Target:      5.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print((6+10))
+	Target:      16.
+	Prediction:  6..
+	-----------------------------
+	Input:	     print((3*5))
+	Target:      15.
+	Prediction:  6..
+	-----------------------------
+	Input:	     print((7*4))
+	Target:      28.
+	Prediction:  660
+	-----------------------------
+	Input:	     print((8-6))
+	Target:      2.
+	Prediction:  56
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((6-6))
+	Target:      0.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((7-3))
+	Target:      4.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print((2-8))
+	Target:      -6.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((2*4))
+	Target:      8.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print((5-8))
+	Target:      -3.
+	Prediction:  636
+	-----------------------------
+	Input:	     print((2*5))
+	Target:      10.
+	Prediction:  66.
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  66
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  16
+	-----------------------------
+	Input:	     print((6*3))
+	Target:      18.
+	Prediction:  .6.
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print((2-4))
+	Target:      -2.
+	Prediction:  666
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((6-1))
+	Target:      5.
+	Prediction:  66
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((7-6))
+	Target:      1.
+	Prediction:  .6
+	-----------------------------
+	Input:	     print((5-2))
+	Target:      3.
+	Prediction:  66
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  60
+	-----------------------------
+	Input:	     print((3*4))
+	Target:      12.
+	Prediction:  6.6
+	-----------------------------
+	Input:	     print((4+3))
+	Target:      7.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((9-7))
+	Target:      2.
+	Prediction:  66
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((8-5))
+	Target:      3.
+	Prediction:  66
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((4*3))
+	Target:      12.
+	Prediction:  10.
+	-----------------------------
+	Input:	     print((3*10))
+	Target:      30.
+	Prediction:  666
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  56
+	-----------------------------
+	Input:	     print((8+3))
+	Target:      11.
+	Prediction:  66.
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print((9-10))
+	Target:      -1.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((6-1))
+	Target:      5.
+	Prediction:  66
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print(54)
+	Target:      54.
+	Prediction:  656
+	-----------------------------
+	Input:	     print(17)
+	Target:      17.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((94+21))
+	Target:      115.
+	Prediction:  666.
+	-----------------------------
+	Input:	     print(11)
+	Target:      11.
+	Prediction:  666
+	-----------------------------
+	Input:	     print(55)
+	Target:      55.
+	Prediction:  6..
+	-----------------------------
+	Input:	     print((3*7))
+	Target:      21.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((19+12))
+	Target:      31.
+	Prediction:  6.6
+	-----------------------------
+	Input:	     print((60*3))
+	Target:      180.
+	Prediction:  666.
+	-----------------------------
+	Input:	     print((3*28))
+	Target:      84.
+	Prediction:  666
+	-----------------------------
+	Input:	     print(60)
+	Target:      60.
+	Prediction:  6.6
+	-----------------------------
+	Input:	     print((6*2))
+	Target:      12.
+	Prediction:  066
+	-----------------------------
+	Input:	     print((6*41))
+	Target:      246.
+	Prediction:  166.
+	-----------------------------
+	Input:	     print((91-89))
+	Target:      2.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((18+2))
+	Target:      20.
+	Prediction:  666
+	-----------------------------
+	Input:	     print(79)
+	Target:      79.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((8*97))
+	Target:      776.
+	Prediction:  66.6
+	-----------------------------
+	Input:	     print(79)
+	Target:      79.
+	Prediction:  16.
+	-----------------------------
+	Input:	     print(97)
+	Target:      97.
+	Prediction:  66.
+	-----------------------------
+	Input:	     print((75-26))
+	Target:      49.
+	Prediction:  611
+	-----------------------------
+	Input:	     print((3*55))
+	Target:      165.
+	Prediction:  1166
+	-----------------------------
+	Input:	     print(37)
+	Target:      37.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((8*90))
+	Target:      720.
+	Prediction:  56..
+	-----------------------------
+	Input:	     print(18)
+	Target:      18.
+	Prediction:  066
+	-----------------------------
+	Input:	     print((86+79))
+	Target:      165.
+	Prediction:  66.6
+	-----------------------------
+	Input:	     print((95+44))
+	Target:      139.
+	Prediction:  666.
+	-----------------------------
+	Input:	     print((28*7))
+	Target:      196.
+	Prediction:  6666
+	-----------------------------
+	Input:	     print((11+67))
+	Target:      78.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((5-71))
+	Target:      -66.
+	Prediction:  6666
+	-----------------------------
+	Input:	     print((42-6))
+	Target:      36.
+	Prediction:  666
+	-----------------------------
+	Input:	     print(4)
+	Target:      4.
+	Prediction:  6.
+	-----------------------------
+epoch=5, Training acc.=21.94%, Validation acc.=9.63%, Test acc.=10.77%, current length=1, current nesting=1, characters per sec.=13784, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((4+10))
+	Target:      14.
+	Prediction:  616
+	-----------------------------
+	Input:	     print((5-5))
+	Target:      0.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((5*3))
+	Target:      15.
+	Prediction:  166
+	-----------------------------
+	Input:	     print((1*5))
+	Target:      5.
+	Prediction:  16
+	-----------------------------
+	Input:	     print((7-4))
+	Target:      3.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	Prediction:  16
+	-----------------------------
+	Input:	     print((9-5))
+	Target:      4.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((2-2))
+	Target:      0.
+	Prediction:  16
+	-----------------------------
+	Input:	     print((9+3))
+	Target:      12.
+	Prediction:  166
+	-----------------------------
+	Input:	     print((4*4))
+	Target:      16.
+	Prediction:  166
+	-----------------------------
+	Input:	     print((5-5))
+	Target:      0.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((3-5))
+	Target:      -2.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((4+5))
+	Target:      9.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((8-6))
+	Target:      2.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print((10+4))
+	Target:      14.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((4*9))
+	Target:      36.
+	Prediction:  166
+	-----------------------------
+	Input:	     print((3*5))
+	Target:      15.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((4+5))
+	Target:      9.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((1*6))
+	Target:      6.
+	Prediction:  16
+	-----------------------------
+	Input:	     print((10+5))
+	Target:      15.
+	Prediction:  166
+	-----------------------------
+	Input:	     print((7*1))
+	Target:      7.
+	Prediction:  16
+	-----------------------------
+	Input:	     print((4*8))
+	Target:      32.
+	Prediction:  6.6
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	Prediction:  16
+	-----------------------------
+	Input:	     print((10+3))
+	Target:      13.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((1-3))
+	Target:      -2.
+	Prediction:  166
+	-----------------------------
+	Input:	     print((1*5))
+	Target:      5.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((2-6))
+	Target:      -4.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((5*3))
+	Target:      15.
+	Prediction:  166
+	-----------------------------
+	Input:	     print((3-5))
+	Target:      -2.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((10+3))
+	Target:      13.
+	Prediction:  116
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  16
+	-----------------------------
+	Input:	     print((6*1))
+	Target:      6.
+	Prediction:  66
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((1*2))
+	Target:      2.
+	Prediction:  16
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  16
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  16
+	-----------------------------
+	Input:	     print((7*2))
+	Target:      14.
+	Prediction:  666
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  66
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  61
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  16
+	-----------------------------
+	Input:	     print((2+6))
+	Target:      8.
+	Prediction:  16
+	-----------------------------
+	Input:	     print((1*3))
+	Target:      3.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((7+9))
+	Target:      16.
+	Prediction:  166
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  66
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  16
+	-----------------------------
+	Input:	     print((3+4))
+	Target:      7.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((4-5))
+	Target:      -1.
+	Prediction:  166
+	-----------------------------
+	Input:	     print((3+7))
+	Target:      10.
+	Prediction:  166
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((4-5))
+	Target:      -1.
+	Prediction:  166
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((2*1))
+	Target:      2.
+	Prediction:  11
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((8-8))
+	Target:      0.
+	Prediction:  66
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((2*1))
+	Target:      2.
+	Prediction:  16
+	-----------------------------
+	Input:	     print((4-10))
+	Target:      -6.
+	Prediction:  166
+	-----------------------------
+	Input:	     print((3*8))
+	Target:      24.
+	Prediction:  661
+	-----------------------------
+	Input:	     print((9+2))
+	Target:      11.
+	Prediction:  166
+	-----------------------------
+	Input:	     print((3-3))
+	Target:      0.
+	Prediction:  66
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print((3*7))
+	Target:      21.
+	Prediction:  666
+	-----------------------------
+	Input:	     print(17)
+	Target:      17.
+	Prediction:  166
+	-----------------------------
+	Input:	     print((72+55))
+	Target:      127.
+	Prediction:  1666
+	-----------------------------
+	Input:	     print((4*6))
+	Target:      24.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((93-63))
+	Target:      30.
+	Prediction:  111
+	-----------------------------
+	Input:	     print((9-37))
+	Target:      -28.
+	Prediction:  166.
+	-----------------------------
+	Input:	     print((69+61))
+	Target:      130.
+	Prediction:  6666
+	-----------------------------
+	Input:	     print(55)
+	Target:      55.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((50-49))
+	Target:      1.
+	Prediction:  16
+	-----------------------------
+	Input:	     print((53-57))
+	Target:      -4.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((100-74))
+	Target:      26.
+	Prediction:  116
+	-----------------------------
+	Input:	     print(49)
+	Target:      49.
+	Prediction:  666
+	-----------------------------
+	Input:	     print(67)
+	Target:      67.
+	Prediction:  666
+	-----------------------------
+	Input:	     print(42)
+	Target:      42.
+	Prediction:  166
+	-----------------------------
+	Input:	     print(54)
+	Target:      54.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((1*72))
+	Target:      72.
+	Prediction:  166
+	-----------------------------
+	Input:	     print((3+50))
+	Target:      53.
+	Prediction:  166
+	-----------------------------
+	Input:	     print((2-67))
+	Target:      -65.
+	Prediction:  1666
+	-----------------------------
+	Input:	     print(17)
+	Target:      17.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((66+59))
+	Target:      125.
+	Prediction:  6666
+	-----------------------------
+	Input:	     print(41)
+	Target:      41.
+	Prediction:  666
+	-----------------------------
+	Input:	     print((44*7))
+	Target:      308.
+	Prediction:  1666
+	-----------------------------
+	Input:	     print((5*41))
+	Target:      205.
+	Prediction:  1166
+	-----------------------------
+	Input:	     print((79*8))
+	Target:      632.
+	Prediction:  6666
+	-----------------------------
+	Input:	     print((97-57))
+	Target:      40.
+	Prediction:  166
+	-----------------------------
+	Input:	     print((8*32))
+	Target:      256.
+	Prediction:  1666
+	-----------------------------
+	Input:	     print((7*97))
+	Target:      679.
+	Prediction:  1661
+	-----------------------------
+	Input:	     print((7*5))
+	Target:      35.
+	Prediction:  116
+	-----------------------------
+	Input:	     print((7*89))
+	Target:      623.
+	Prediction:  1666
+	-----------------------------
+	Input:	     print((55-84))
+	Target:      -29.
+	Prediction:  6666
+	-----------------------------
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     print((7*1))
+	Target:      7.
+	-----------------------------
+	Input:	     print((5+9))
+	Target:      14.
+	-----------------------------
+	Input:	     print((5+3))
+	Target:      8.
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	-----------------------------
+	Input:	     print((1-4))
+	Target:      -3.
+	-----------------------------
+	Input:	     print((1+3))
+	Target:      4.
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	-----------------------------
+	Input:	     print((1+3))
+	Target:      4.
+	-----------------------------
+	Input:	     print((5*3))
+	Target:      15.
+	-----------------------------
+	Input:	     print((4*8))
+	Target:      32.
+	-----------------------------
+	Input:	     print((8-3))
+	Target:      5.
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	-----------------------------
+	Input:	     print((5*2))
+	Target:      10.
+	-----------------------------
+	Input:	     print((5+3))
+	Target:      8.
+	-----------------------------
+	Input:	     print((4*4))
+	Target:      16.
+	-----------------------------
+	Input:	     print((2+3))
+	Target:      5.
+	-----------------------------
+	Input:	     print((8+8))
+	Target:      16.
+	-----------------------------
+	Input:	     print((8+5))
+	Target:      13.
+	-----------------------------
+	Input:	     print((10+3))
+	Target:      13.
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	-----------------------------
+(Total number of data were: 21
+epoch=6, Training acc.=26.13%, Validation acc.=33.22%, Test acc.=29.88%, current length=1, current nesting=1, characters per sec.=8516, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((9+7))
+	Target:      16.
+	Prediction:  11.
+	-----------------------------
+	Input:	     print((1-3))
+	Target:      -2.
+	Prediction:  1.5
+	-----------------------------
+	Input:	     print((4*4))
+	Target:      16.
+	Prediction:  -1.
+	-----------------------------
+	Input:	     print((5-3))
+	Target:      2.
+	Prediction:  17
+	-----------------------------
+	Input:	     print((5*3))
+	Target:      15.
+	Prediction:  151
+	-----------------------------
+	Input:	     print((5*3))
+	Target:      15.
+	Prediction:  11.
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((6+2))
+	Target:      8.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((8+8))
+	Target:      16.
+	Prediction:  11.
+	-----------------------------
+	Input:	     print((10-3))
+	Target:      7.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((7*1))
+	Target:      7.
+	Prediction:  15
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((1*6))
+	Target:      6.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((7+3))
+	Target:      10.
+	Prediction:  11.
+	-----------------------------
+	Input:	     print((5+4))
+	Target:      9.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((5+4))
+	Target:      9.
+	Prediction:  18
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((7*4))
+	Target:      28.
+	Prediction:  11.
+	-----------------------------
+	Input:	     print((3+1))
+	Target:      4.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((7+3))
+	Target:      10.
+	Prediction:  118
+	-----------------------------
+	Input:	     print((1-3))
+	Target:      -2.
+	Prediction:  -18
+	-----------------------------
+	Input:	     print((7+3))
+	Target:      10.
+	Prediction:  111
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((10-3))
+	Target:      7.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((7-7))
+	Target:      0.
+	Prediction:  -7
+	-----------------------------
+	Input:	     print((4-1))
+	Target:      3.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((6+1))
+	Target:      7.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((4*4))
+	Target:      16.
+	Prediction:  111
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  -1
+	-----------------------------
+	Input:	     print((6*1))
+	Target:      6.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((1*2))
+	Target:      2.
+	Prediction:  17
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  11
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  17
+	-----------------------------
+	Input:	     print((7*2))
+	Target:      14.
+	Prediction:  11.
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  11
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  11
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((2+6))
+	Target:      8.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((1*3))
+	Target:      3.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((7+9))
+	Target:      16.
+	Prediction:  117
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  11
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((3+4))
+	Target:      7.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((4-5))
+	Target:      -1.
+	Prediction:  111
+	-----------------------------
+	Input:	     print((3+7))
+	Target:      10.
+	Prediction:  -1.
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((4-5))
+	Target:      -1.
+	Prediction:  1.1
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print((2*1))
+	Target:      2.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((8-8))
+	Target:      0.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((2*1))
+	Target:      2.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((4-10))
+	Target:      -6.
+	Prediction:  11.
+	-----------------------------
+	Input:	     print((3*8))
+	Target:      24.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print((9+2))
+	Target:      11.
+	Prediction:  1.1
+	-----------------------------
+	Input:	     print((3-3))
+	Target:      0.
+	Prediction:  1.
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print((76*3))
+	Target:      228.
+	Prediction:  11..
+	-----------------------------
+	Input:	     print((26+63))
+	Target:      89.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print((95*4))
+	Target:      380.
+	Prediction:  11..
+	-----------------------------
+	Input:	     print(73)
+	Target:      73.
+	Prediction:  18.
+	-----------------------------
+	Input:	     print((79-24))
+	Target:      55.
+	Prediction:  17.
+	-----------------------------
+	Input:	     print((4*6))
+	Target:      24.
+	Prediction:  -71
+	-----------------------------
+	Input:	     print((1*54))
+	Target:      54.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print((27*1))
+	Target:      27.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print((46*8))
+	Target:      368.
+	Prediction:  1...
+	-----------------------------
+	Input:	     print((19*5))
+	Target:      95.
+	Prediction:  18.
+	-----------------------------
+	Input:	     print((44+53))
+	Target:      97.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print(11)
+	Target:      11.
+	Prediction:  111
+	-----------------------------
+	Input:	     print((34-66))
+	Target:      -32.
+	Prediction:  1111
+	-----------------------------
+	Input:	     print((68+45))
+	Target:      113.
+	Prediction:  11.1
+	-----------------------------
+	Input:	     print((62*8))
+	Target:      496.
+	Prediction:  1...
+	-----------------------------
+	Input:	     print((3+100))
+	Target:      103.
+	Prediction:  111.
+	-----------------------------
+	Input:	     print((8*41))
+	Target:      328.
+	Prediction:  1...
+	-----------------------------
+	Input:	     print((61*5))
+	Target:      305.
+	Prediction:  1.7.
+	-----------------------------
+	Input:	     print(22)
+	Target:      22.
+	Prediction:  1.7
+	-----------------------------
+	Input:	     print(22)
+	Target:      22.
+	Prediction:  17.
+	-----------------------------
+	Input:	     print((6*8))
+	Target:      48.
+	Prediction:  17.
+	-----------------------------
+	Input:	     print((52*7))
+	Target:      364.
+	Prediction:  1...
+	-----------------------------
+	Input:	     print((8*3))
+	Target:      24.
+	Prediction:  11.
+	-----------------------------
+	Input:	     print((2*84))
+	Target:      168.
+	Prediction:  11..
+	-----------------------------
+	Input:	     print((2*29))
+	Target:      58.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print((24*8))
+	Target:      192.
+	Prediction:  1.8.
+	-----------------------------
+	Input:	     print((99-28))
+	Target:      71.
+	Prediction:  117
+	-----------------------------
+	Input:	     print((83+29))
+	Target:      112.
+	Prediction:  1148
+	-----------------------------
+	Input:	     print(42)
+	Target:      42.
+	Prediction:  1..
+	-----------------------------
+	Input:	     ppppppppp
+	Prediction:  
+	-----------------------------
+epoch=6, Training acc.=32.44%, Validation acc.=33.09%, Test acc.=25.99%, current length=1, current nesting=1, characters per sec.=13768, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((8-6))
+	Target:      2.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print((4-1))
+	Target:      3.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print((4+5))
+	Target:      9.
+	Prediction:  86
+	-----------------------------
+	Input:	     print((6-2))
+	Target:      4.
+	Prediction:  06
+	-----------------------------
+	Input:	     print((8*2))
+	Target:      16.
+	Prediction:  20.
+	-----------------------------
+	Input:	     print((10+4))
+	Target:      14.
+	Prediction:  6..
+	-----------------------------
+	Input:	     print((4+5))
+	Target:      9.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((10*2))
+	Target:      20.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((10*2))
+	Target:      20.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((8+10))
+	Target:      18.
+	Prediction:  ..1
+	-----------------------------
+	Input:	     print((4+7))
+	Target:      11.
+	Prediction:  301
+	-----------------------------
+	Input:	     print((3-5))
+	Target:      -2.
+	Prediction:  61.
+	-----------------------------
+	Input:	     print((4-7))
+	Target:      -3.
+	Prediction:  16.
+	-----------------------------
+	Input:	     print((1+4))
+	Target:      5.
+	Prediction:  2.
+	-----------------------------
+	Input:	     print((3-5))
+	Target:      -2.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((1+3))
+	Target:      4.
+	Prediction:  0.
+	-----------------------------
+	Input:	     print((4*8))
+	Target:      32.
+	Prediction:  62.
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((1+5))
+	Target:      6.
+	Prediction:  2.
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  02
+	-----------------------------
+	Input:	     print((2+9))
+	Target:      11.
+	Prediction:  6..
+	-----------------------------
+	Input:	     print((10+3))
+	Target:      13.
+	Prediction:  6..
+	-----------------------------
+	Input:	     print((4*4))
+	Target:      16.
+	Prediction:  .2.
+	-----------------------------
+	Input:	     print((8+10))
+	Target:      18.
+	Prediction:  ..3
+	-----------------------------
+	Input:	     print((6+10))
+	Target:      16.
+	Prediction:  .3.
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  22
+	-----------------------------
+	Input:	     print((7*4))
+	Target:      28.
+	Prediction:  2.2
+	-----------------------------
+	Input:	     print((3*5))
+	Target:      15.
+	Prediction:  2..
+	-----------------------------
+	Input:	     print((8+9))
+	Target:      17.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((1-7))
+	Target:      -6.
+	Prediction:  ...
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((3*4))
+	Target:      12.
+	Prediction:  133
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  2.
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  2.
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  0.
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  3.
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  2.
+	-----------------------------
+	Input:	     print((9*4))
+	Target:      36.
+	Prediction:  6..
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print((10-9))
+	Target:      1.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  26
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  2.
+	-----------------------------
+	Input:	     print((2*3))
+	Target:      6.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  2.
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  2.
+	-----------------------------
+	Input:	     print((6*3))
+	Target:      18.
+	Prediction:  161
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  23
+	-----------------------------
+	Input:	     print((1*2))
+	Target:      2.
+	Prediction:  2.
+	-----------------------------
+	Input:	     print((2+6))
+	Target:      8.
+	Prediction:  2.
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print((2*3))
+	Target:      6.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  61
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  2.
+	-----------------------------
+	Input:	     print((2+7))
+	Target:      9.
+	Prediction:  62
+	-----------------------------
+	Input:	     print((1*3))
+	Target:      3.
+	Prediction:  2.
+	-----------------------------
+	Input:	     print((3*3))
+	Target:      9.
+	Prediction:  2.
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  0.
+	-----------------------------
+	Input:	     print((3*4))
+	Target:      12.
+	Prediction:  2..
+	-----------------------------
+	Input:	     print((10-6))
+	Target:      4.
+	Prediction:  57
+	-----------------------------
+	Input:	     print((2*9))
+	Target:      18.
+	Prediction:  2..
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print((69*3))
+	Target:      207.
+	Prediction:  ....
+	-----------------------------
+	Input:	     print(17)
+	Target:      17.
+	Prediction:  6..
+	-----------------------------
+	Input:	     print((50-78))
+	Target:      -28.
+	Prediction:  .22.
+	-----------------------------
+	Input:	     print(60)
+	Target:      60.
+	Prediction:  2..
+	-----------------------------
+	Input:	     print(86)
+	Target:      86.
+	Prediction:  .3.
+	-----------------------------
+	Input:	     print(86)
+	Target:      86.
+	Prediction:  322
+	-----------------------------
+	Input:	     print(67)
+	Target:      67.
+	Prediction:  2..
+	-----------------------------
+	Input:	     print((93-51))
+	Target:      42.
+	Prediction:  2.2
+	-----------------------------
+	Input:	     print((84-3))
+	Target:      81.
+	Prediction:  11.
+	-----------------------------
+	Input:	     print((95-26))
+	Target:      69.
+	Prediction:  .6.
+	-----------------------------
+	Input:	     print(85)
+	Target:      85.
+	Prediction:  0.2
+	-----------------------------
+	Input:	     print((43+91))
+	Target:      134.
+	Prediction:  .0..
+	-----------------------------
+	Input:	     print((100+40))
+	Target:      140.
+	Prediction:  66..
+	-----------------------------
+	Input:	     print(67)
+	Target:      67.
+	Prediction:  6..
+	-----------------------------
+	Input:	     print((47+57))
+	Target:      104.
+	Prediction:  2...
+	-----------------------------
+	Input:	     print(98)
+	Target:      98.
+	Prediction:  2..
+	-----------------------------
+	Input:	     print((33-97))
+	Target:      -64.
+	Prediction:  06..
+	-----------------------------
+	Input:	     print((36*7))
+	Target:      252.
+	Prediction:  6...
+	-----------------------------
+	Input:	     print((5*4))
+	Target:      20.
+	Prediction:  13.
+	-----------------------------
+	Input:	     print((80+33))
+	Target:      113.
+	Prediction:  666.
+	-----------------------------
+	Input:	     print((6-69))
+	Target:      -63.
+	Prediction:  2...
+	-----------------------------
+	Input:	     print((59-79))
+	Target:      -20.
+	Prediction:  1.6.
+	-----------------------------
+	Input:	     print(36)
+	Target:      36.
+	Prediction:  0..
+	-----------------------------
+	Input:	     print(35)
+	Target:      35.
+	Prediction:  2..
+	-----------------------------
+	Input:	     print((99-98))
+	Target:      1.
+	Prediction:  0.
+	-----------------------------
+	Input:	     print(66)
+	Target:      66.
+	Prediction:  2..
+	-----------------------------
+	Input:	     print(8)
+	Target:      8.
+	Prediction:  3.
+	-----------------------------
+	Input:	     print((80*3))
+	Target:      240.
+	Prediction:  2...
+	-----------------------------
+	Input:	     print(18)
+	Target:      18.
+	Prediction:  .1.
+	-----------------------------
+	Input:	     print(49)
+	Target:      49.
+	Prediction:  6..
+	-----------------------------
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     print((2+1))
+	Target:      3.
+	-----------------------------
+	Input:	     print((6+3))
+	Target:      9.
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	-----------------------------
+	Input:	     print((5*3))
+	Target:      15.
+	-----------------------------
+	Input:	     print((8+8))
+	Target:      16.
+	-----------------------------
+	Input:	     print((9-3))
+	Target:      6.
+	-----------------------------
+	Input:	     print((7-4))
+	Target:      3.
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	-----------------------------
+	Input:	     print((1*6))
+	Target:      6.
+	-----------------------------
+	Input:	     print((3+1))
+	Target:      4.
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	-----------------------------
+	Input:	     print((10*2))
+	Target:      20.
+	-----------------------------
+	Input:	     print((5*3))
+	Target:      15.
+	-----------------------------
+	Input:	     print((3*9))
+	Target:      27.
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	-----------------------------
+	Input:	     print((9+3))
+	Target:      12.
+	-----------------------------
+	Input:	     print((10+3))
+	Target:      13.
+	-----------------------------
+	Input:	     print((2-2))
+	Target:      0.
+	-----------------------------
+	Input:	     print((9+7))
+	Target:      16.
+	-----------------------------
+	Input:	     print((8+9))
+	Target:      17.
+	-----------------------------
+(Total number of data were: 21
+epoch=7, Training acc.=33.47%, Validation acc.=35.61%, Test acc.=28.96%, current length=1, current nesting=1, characters per sec.=8546, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((7*1))
+	Target:      7.
+	Prediction:  16
+	-----------------------------
+	Input:	     print((2+1))
+	Target:      3.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((5*3))
+	Target:      15.
+	Prediction:  7.6
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print((6+1))
+	Target:      7.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print((6+1))
+	Target:      7.
+	Prediction:  0.
+	-----------------------------
+	Input:	     print((3+1))
+	Target:      4.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	Prediction:  16
+	-----------------------------
+	Input:	     print((1+5))
+	Target:      6.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print((7*1))
+	Target:      7.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  -6
+	-----------------------------
+	Input:	     print((3*9))
+	Target:      27.
+	Prediction:  1.7
+	-----------------------------
+	Input:	     print((6+8))
+	Target:      14.
+	Prediction:  10.
+	-----------------------------
+	Input:	     print((4-7))
+	Target:      -3.
+	Prediction:  7..
+	-----------------------------
+	Input:	     print((6-2))
+	Target:      4.
+	Prediction:  07
+	-----------------------------
+	Input:	     print((5-5))
+	Target:      0.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((1-3))
+	Target:      -2.
+	Prediction:  7.6
+	-----------------------------
+	Input:	     print((2-6))
+	Target:      -4.
+	Prediction:  7..
+	-----------------------------
+	Input:	     print((1+5))
+	Target:      6.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print((2*7))
+	Target:      14.
+	Prediction:  160
+	-----------------------------
+	Input:	     print((8*2))
+	Target:      16.
+	Prediction:  .0.
+	-----------------------------
+	Input:	     print((1-3))
+	Target:      -2.
+	Prediction:  1.0
+	-----------------------------
+	Input:	     print((3*1))
+	Target:      3.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print((1-7))
+	Target:      -6.
+	Prediction:  60.
+	-----------------------------
+	Input:	     print((6+2))
+	Target:      8.
+	Prediction:  -7
+	-----------------------------
+	Input:	     print((5+4))
+	Target:      9.
+	Prediction:  -7
+	-----------------------------
+	Input:	     print((10*2))
+	Target:      20.
+	Prediction:  07.
+	-----------------------------
+	Input:	     print((8-3))
+	Target:      5.
+	Prediction:  -7
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print((9-7))
+	Target:      2.
+	Prediction:  17
+	-----------------------------
+	Input:	     print((1*3))
+	Target:      3.
+	Prediction:  0.
+	-----------------------------
+	Input:	     print((6*3))
+	Target:      18.
+	Prediction:  -..
+	-----------------------------
+	Input:	     print((4*3))
+	Target:      12.
+	Prediction:  76.
+	-----------------------------
+	Input:	     print((6*3))
+	Target:      18.
+	Prediction:  10.
+	-----------------------------
+	Input:	     print((10+2))
+	Target:      12.
+	Prediction:  167
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  -6
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  -7
+	-----------------------------
+	Input:	     print((2*2))
+	Target:      4.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print((1*9))
+	Target:      9.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  66
+	-----------------------------
+	Input:	     print((8-10))
+	Target:      -2.
+	Prediction:  -67
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print((10-1))
+	Target:      9.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  66
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  66
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  10
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  16
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print((2*6))
+	Target:      12.
+	Prediction:  167
+	-----------------------------
+	Input:	     print((2-8))
+	Target:      -6.
+	Prediction:  -6.
+	-----------------------------
+	Input:	     print((3*8))
+	Target:      24.
+	Prediction:  -0.
+	-----------------------------
+	Input:	     print((6*4))
+	Target:      24.
+	Prediction:  -06
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  -.
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print((66-65))
+	Target:      1.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print(67)
+	Target:      67.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print((68*3))
+	Target:      204.
+	Prediction:  -.7.
+	-----------------------------
+	Input:	     print((91+65))
+	Target:      156.
+	Prediction:  10..
+	-----------------------------
+	Input:	     print((60-82))
+	Target:      -22.
+	Prediction:  -777
+	-----------------------------
+	Input:	     print(66)
+	Target:      66.
+	Prediction:  -..
+	-----------------------------
+	Input:	     print((1*20))
+	Target:      20.
+	Prediction:  -..
+	-----------------------------
+	Input:	     print((1*84))
+	Target:      84.
+	Prediction:  6..
+	-----------------------------
+	Input:	     print((5*72))
+	Target:      360.
+	Prediction:  -...
+	-----------------------------
+	Input:	     print((35*2))
+	Target:      70.
+	Prediction:  -70
+	-----------------------------
+	Input:	     print(84)
+	Target:      84.
+	Prediction:  -..
+	-----------------------------
+	Input:	     print((94-75))
+	Target:      19.
+	Prediction:  -.0
+	-----------------------------
+	Input:	     print((92+68))
+	Target:      160.
+	Prediction:  -6.6
+	-----------------------------
+	Input:	     print(54)
+	Target:      54.
+	Prediction:  .7.
+	-----------------------------
+	Input:	     print(98)
+	Target:      98.
+	Prediction:  16.
+	-----------------------------
+	Input:	     print(4)
+	Target:      4.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print(73)
+	Target:      73.
+	Prediction:  -0.
+	-----------------------------
+	Input:	     print((4*74))
+	Target:      296.
+	Prediction:  -0..
+	-----------------------------
+	Input:	     print(23)
+	Target:      23.
+	Prediction:  0..
+	-----------------------------
+	Input:	     print(73)
+	Target:      73.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print(67)
+	Target:      67.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print((70-43))
+	Target:      27.
+	Prediction:  -7.
+	-----------------------------
+	Input:	     print((78-57))
+	Target:      21.
+	Prediction:  -70
+	-----------------------------
+	Input:	     print((57*8))
+	Target:      456.
+	Prediction:  6...
+	-----------------------------
+	Input:	     print((58+71))
+	Target:      129.
+	Prediction:  ....
+	-----------------------------
+	Input:	     print(97)
+	Target:      97.
+	Prediction:  66.
+	-----------------------------
+	Input:	     print((3*7))
+	Target:      21.
+	Prediction:  67.
+	-----------------------------
+	Input:	     print((22+4))
+	Target:      26.
+	Prediction:  0..
+	-----------------------------
+	Input:	     print(37)
+	Target:      37.
+	Prediction:  7..
+	-----------------------------
+	Input:	     print(2)
+	Target:      2.
+	Prediction:  -.
+	-----------------------------
+epoch=7, Training acc.=31.32%, Validation acc.=32.40%, Test acc.=27.22%, current length=1, current nesting=1, characters per sec.=13893, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((10+4))
+	Target:      14.
+	Prediction:  111
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((7*1))
+	Target:      7.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((7+6))
+	Target:      13.
+	Prediction:  11.
+	-----------------------------
+	Input:	     print((7+3))
+	Target:      10.
+	Prediction:  11.
+	-----------------------------
+	Input:	     print((4*4))
+	Target:      16.
+	Prediction:  111
+	-----------------------------
+	Input:	     print((4-7))
+	Target:      -3.
+	Prediction:  111
+	-----------------------------
+	Input:	     print((10*2))
+	Target:      20.
+	Prediction:  1.1
+	-----------------------------
+	Input:	     print((4*8))
+	Target:      32.
+	Prediction:  11.
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((7*4))
+	Target:      28.
+	Prediction:  11.
+	-----------------------------
+	Input:	     print((10-10))
+	Target:      0.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((8*2))
+	Target:      16.
+	Prediction:  11.
+	-----------------------------
+	Input:	     print((1-3))
+	Target:      -2.
+	Prediction:  1.1
+	-----------------------------
+	Input:	     print((2+10))
+	Target:      12.
+	Prediction:  11.
+	-----------------------------
+	Input:	     print((8+9))
+	Target:      17.
+	Prediction:  111
+	-----------------------------
+	Input:	     print((1*6))
+	Target:      6.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((5*2))
+	Target:      10.
+	Prediction:  11.
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((7*1))
+	Target:      7.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((3+8))
+	Target:      11.
+	Prediction:  111
+	-----------------------------
+	Input:	     print((7*4))
+	Target:      28.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((3*5))
+	Target:      15.
+	Prediction:  11.
+	-----------------------------
+	Input:	     print((7-10))
+	Target:      -3.
+	Prediction:  11.
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  11
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((9*3))
+	Target:      27.
+	Prediction:  111
+	-----------------------------
+	Input:	     print((3*3))
+	Target:      9.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((2*4))
+	Target:      8.
+	Prediction:  11
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((4-6))
+	Target:      -2.
+	Prediction:  111
+	-----------------------------
+	Input:	     print((3*8))
+	Target:      24.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print((8-10))
+	Target:      -2.
+	Prediction:  111
+	-----------------------------
+	Input:	     print((7*3))
+	Target:      21.
+	Prediction:  111
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((9-10))
+	Target:      -1.
+	Prediction:  111
+	-----------------------------
+	Input:	     print((2+8))
+	Target:      10.
+	Prediction:  111
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((7-3))
+	Target:      4.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((2*6))
+	Target:      12.
+	Prediction:  11.
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((3*10))
+	Target:      30.
+	Prediction:  11.
+	-----------------------------
+	Input:	     print((2*1))
+	Target:      2.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((6-6))
+	Target:      0.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((3-3))
+	Target:      0.
+	Prediction:  11
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((2*2))
+	Target:      4.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((2*5))
+	Target:      10.
+	Prediction:  111
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  11
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print(7)
+	Target:      7.
+	Prediction:  11
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((3*4))
+	Target:      12.
+	Prediction:  1..
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print((43+81))
+	Target:      124.
+	Prediction:  11..
+	-----------------------------
+	Input:	     print(54)
+	Target:      54.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print((13*6))
+	Target:      78.
+	Prediction:  111
+	-----------------------------
+	Input:	     print(41)
+	Target:      41.
+	Prediction:  1.1
+	-----------------------------
+	Input:	     print((46-2))
+	Target:      44.
+	Prediction:  111
+	-----------------------------
+	Input:	     print(11)
+	Target:      11.
+	Prediction:  111
+	-----------------------------
+	Input:	     print((7-65))
+	Target:      -58.
+	Prediction:  111.
+	-----------------------------
+	Input:	     print((27-42))
+	Target:      -15.
+	Prediction:  1111
+	-----------------------------
+	Input:	     print(8)
+	Target:      8.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print(84)
+	Target:      84.
+	Prediction:  111
+	-----------------------------
+	Input:	     print((37-23))
+	Target:      14.
+	Prediction:  11.
+	-----------------------------
+	Input:	     print((1*83))
+	Target:      83.
+	Prediction:  1.1
+	-----------------------------
+	Input:	     print((38*8))
+	Target:      304.
+	Prediction:  1...
+	-----------------------------
+	Input:	     print(4)
+	Target:      4.
+	Prediction:  11
+	-----------------------------
+	Input:	     print((8*87))
+	Target:      696.
+	Prediction:  1...
+	-----------------------------
+	Input:	     print((43-17))
+	Target:      26.
+	Prediction:  111
+	-----------------------------
+	Input:	     print((7*74))
+	Target:      518.
+	Prediction:  1111
+	-----------------------------
+	Input:	     print((2*19))
+	Target:      38.
+	Prediction:  1.1
+	-----------------------------
+	Input:	     print((6*35))
+	Target:      210.
+	Prediction:  1.1.
+	-----------------------------
+	Input:	     print(90)
+	Target:      90.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print((39+71))
+	Target:      110.
+	Prediction:  1.1.
+	-----------------------------
+	Input:	     print((2*19))
+	Target:      38.
+	Prediction:  1.1
+	-----------------------------
+	Input:	     print((46*2))
+	Target:      92.
+	Prediction:  111
+	-----------------------------
+	Input:	     print(22)
+	Target:      22.
+	Prediction:  11.
+	-----------------------------
+	Input:	     print((65-100))
+	Target:      -35.
+	Prediction:  11.1
+	-----------------------------
+	Input:	     print(84)
+	Target:      84.
+	Prediction:  11.
+	-----------------------------
+	Input:	     print((25*6))
+	Target:      150.
+	Prediction:  11.1
+	-----------------------------
+	Input:	     print((2+81))
+	Target:      83.
+	Prediction:  11.
+	-----------------------------
+	Input:	     print((85+16))
+	Target:      101.
+	Prediction:  1111
+	-----------------------------
+	Input:	     print(24)
+	Target:      24.
+	Prediction:  11.
+	-----------------------------
+Few exemplary newly generated samples from the Training dataset:
+	Input:	     print((1-4))
+	Target:      -3.
+	-----------------------------
+	Input:	     print((1*4))
+	Target:      4.
+	-----------------------------
+	Input:	     print((5+9))
+	Target:      14.
+	-----------------------------
+	Input:	     print((1+3))
+	Target:      4.
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	-----------------------------
+	Input:	     print((10+4))
+	Target:      14.
+	-----------------------------
+	Input:	     print((10+5))
+	Target:      15.
+	-----------------------------
+	Input:	     print((9+3))
+	Target:      12.
+	-----------------------------
+	Input:	     print((8*2))
+	Target:      16.
+	-----------------------------
+	Input:	     print((6+4))
+	Target:      10.
+	-----------------------------
+	Input:	     print((5*2))
+	Target:      10.
+	-----------------------------
+	Input:	     print((4-1))
+	Target:      3.
+	-----------------------------
+	Input:	     print((5-9))
+	Target:      -4.
+	-----------------------------
+	Input:	     print((5*3))
+	Target:      15.
+	-----------------------------
+	Input:	     print((7-10))
+	Target:      -3.
+	-----------------------------
+	Input:	     print((7+1))
+	Target:      8.
+	-----------------------------
+	Input:	     print((10+4))
+	Target:      14.
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	-----------------------------
+	Input:	     print((7+1))
+	Target:      8.
+	-----------------------------
+	Input:	     print((1+3))
+	Target:      4.
+	-----------------------------
+	Input:	     print((2-6))
+	Target:      -4.
+	-----------------------------
+(Total number of data were: 21
+epoch=8, Training acc.=34.36%, Validation acc.=33.47%, Test acc.=23.20%, current length=1, current nesting=1, characters per sec.=8585, learning rate=0.500	Some exemplary predictions for the Training dataset
+	Input:	     print((7-10))
+	Target:      -3.
+	Prediction:  16.
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	Prediction:  .6
+	-----------------------------
+	Input:	     print((1*5))
+	Target:      5.
+	Prediction:  2.
+	-----------------------------
+	Input:	     print((5*3))
+	Target:      15.
+	Prediction:  42.
+	-----------------------------
+	Input:	     print((9-5))
+	Target:      4.
+	Prediction:  -6
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((4+5))
+	Target:      9.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((4*8))
+	Target:      32.
+	Prediction:  -..
+	-----------------------------
+	Input:	     print((1*5))
+	Target:      5.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print((8-6))
+	Target:      2.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((4+10))
+	Target:      14.
+	Prediction:  4..
+	-----------------------------
+	Input:	     print((3*2))
+	Target:      6.
+	Prediction:  4r
+	-----------------------------
+	Input:	     print((4*2))
+	Target:      8.
+	Prediction:  42
+	-----------------------------
+	Input:	     print((6+2))
+	Target:      8.
+	Prediction:  -.
+	-----------------------------
+	Input:	     print((5+3))
+	Target:      8.
+	Prediction:  2.
+	-----------------------------
+	Input:	     print((7*1))
+	Target:      7.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((5-3))
+	Target:      2.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((4+5))
+	Target:      9.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((9+7))
+	Target:      16.
+	Prediction:  14.
+	-----------------------------
+	Input:	     print((5-3))
+	Target:      2.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((3+1))
+	Target:      4.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((3-10))
+	Target:      -7.
+	Prediction:  26.
+	-----------------------------
+	Input:	     print((4*4))
+	Target:      16.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print((10*2))
+	Target:      20.
+	Prediction:  -..
+	-----------------------------
+	Input:	     print((3*5))
+	Target:      15.
+	Prediction:  122
+	-----------------------------
+	Input:	     print((4+10))
+	Target:      14.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print((9+3))
+	Target:      12.
+	Prediction:  .6.
+	-----------------------------
+	Input:	     print((3*5))
+	Target:      15.
+	Prediction:  16.
+	-----------------------------
+	Input:	     print((5+3))
+	Target:      8.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((10-3))
+	Target:      7.
+	Prediction:  11
+	-----------------------------
+Some exemplary predictions for the Validation dataset
+	Input:	     print((6+7))
+	Target:      13.
+	Prediction:  1..
+	-----------------------------
+	Input:	     print((4-10))
+	Target:      -6.
+	Prediction:  .rr
+	-----------------------------
+	Input:	     print((3*10))
+	Target:      30.
+	Prediction:  ..@
+	-----------------------------
+	Input:	     print((9-10))
+	Target:      -1.
+	Prediction:  11.
+	-----------------------------
+	Input:	     print((5-10))
+	Target:      -5.
+	Prediction:  16r
+	-----------------------------
+	Input:	     print((1*2))
+	Target:      2.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((2*2))
+	Target:      4.
+	Prediction:  2@
+	-----------------------------
+	Input:	     print((2*1))
+	Target:      2.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  1r
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  62
+	-----------------------------
+	Input:	     print((10+2))
+	Target:      12.
+	Prediction:  28.
+	-----------------------------
+	Input:	     print(3)
+	Target:      3.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  22
+	-----------------------------
+	Input:	     print(9)
+	Target:      9.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  2.
+	-----------------------------
+	Input:	     print((1*3))
+	Target:      3.
+	Prediction:  ..
+	-----------------------------
+	Input:	     print((7*2))
+	Target:      14.
+	Prediction:  11r
+	-----------------------------
+	Input:	     print((6*1))
+	Target:      6.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((2*2))
+	Target:      4.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print(5)
+	Target:      5.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((1*2))
+	Target:      2.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((2*2))
+	Target:      4.
+	Prediction:  26
+	-----------------------------
+	Input:	     print((4*3))
+	Target:      12.
+	Prediction:  2.2
+	-----------------------------
+	Input:	     print((6*1))
+	Target:      6.
+	Prediction:  2.
+	-----------------------------
+	Input:	     print((1*9))
+	Target:      9.
+	Prediction:  12
+	-----------------------------
+	Input:	     print((3*4))
+	Target:      12.
+	Prediction:  14.
+	-----------------------------
+	Input:	     print((2*1))
+	Target:      2.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  6.
+	-----------------------------
+	Input:	     print((7*3))
+	Target:      21.
+	Prediction:  1.6
+	-----------------------------
+	Input:	     print(1)
+	Target:      1.
+	Prediction:  ..
+	-----------------------------
+Some exemplary predictions for the Test dataset
+	Input:	     print((20+86))
+	Target:      106.
+	Prediction:  r4rr
+	-----------------------------
+	Input:	     print((4*19))
+	Target:      76.
+	Prediction:  ...
+	-----------------------------
+	Input:	     print((5*42))
+	Target:      210.
+	Prediction:  222.
+	-----------------------------
+	Input:	     print((41*7))
+	Target:      287.
+	Prediction:  1.1r
+	-----------------------------
+	Input:	     print((6*91))
+	Target:      546.
+	Prediction:  2.2)
+	-----------------------------
+	Input:	     print((92+18))
+	Target:      110.
+	Prediction:  16..
+	-----------------------------
+	Input:	     print((5*91))
+	Target:      455.
+	Prediction:  16.r
+	-----------------------------
+	Input:	     print((1*1))
+	Target:      1.
+	Prediction:  1.
+	-----------------------------
+	Input:	     print((19*6))
+	Target:      114.
+	Prediction:  -1.r
+	-----------------------------
+	Input:	     print((2*79))
+	Target:      1

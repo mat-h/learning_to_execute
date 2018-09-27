@@ -214,7 +214,7 @@ function show_predictions(state)
     state.pos = state.pos + 1
     local last_x = state.data.x[state.pos - 1][batch_idx]
     if state.pos > 1 and symbolsManager.idx2symbol[last_x] == "." then
-      if sample_idx >= 3 * 10 then
+      if sample_idx >= 3 * 3 then
         break
       end
       sample_idx = sample_idx + 1
@@ -234,8 +234,9 @@ function show_predictions(state)
 end
 
 function saveAsFile(filename)
-  for i = 1, params.seq_length do
-    local file = torch.DiskFile("model/" .. i .. filename, 'w')
+  for i = 1, 1 --[[params.seq_length]] do
+    local file = torch.DiskFile("model/" --[[.. i]]--
+     .. filename, 'w')
     model.rnns[i]:write(file)
     file:close()
   end
@@ -252,7 +253,7 @@ function main()
   cmd:text()
   local opt = cmd:parse(arg)
 
-  params = {batch_size=100,
+  params = {batch_size=500, -- 100, GPUのメモリを最大限使いたい
             seq_length=50, -- おそらくこれは、教師データの数式の長さの最大値。rnnの個数でもある。
             layers=2,
             rnn_size=400,
@@ -304,6 +305,7 @@ function main()
   print("Starting training.")
   while true do
     local epoch_size = floor(state_train.data.x:size(1) / params.seq_length)
+    -- print('epoch_size = floor(' .. state_train.data.x:size(1) .. ' / ' .. params.seq_length .. ') = ' .. epoch_size)
     step = step + 1
     if step % epoch_size == 0 then
       state_train.seed = state_train.seed + 1
@@ -321,11 +323,13 @@ function main()
         ', current nesting=' .. params.current_nesting ..
         ', characters per sec.=' .. cps ..
         ', learning rate=' .. string.format("%.3f", params.learningRate))
+      if(epoch > 0 and epoch % 100 == 0) then saveAsFile("epoch" .. epoch .. ".model") end
       if (state_val.acc > params.target_accuracy) or
         (#train_accs >= 5 and
-        train_accs[#train_accs - 4] > state_train.acc) then -- これの意味は？
+        train_accs[#train_accs - 4] > state_train.acc)
+        then -- これの意味は？早めに、"とびこし"に気づくということ?いくらなんでもたった一回で短気では？
         if not make_harder() then
-          params.learningRate = params.learningRate * 0.8
+          params.learningRate = params.learningRate * 0.9 -- ブレーキ効かなすぎてもいやなので、0.8からsqrt(0.81)に緩和
         end
         if params.learningRate < 1e-3 then
           -- ここで最終モデルを保存してみてはどうか?

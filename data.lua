@@ -112,6 +112,10 @@ function get_data(state)
   while true do
     data = to_data(compose(state.hardness))
     input, target, orig = unpack(data)
+    --[[print("data")
+    print(input)
+    print(target)
+    print(orig)]]--
     if str_hash(orig) % 3 == state.kind then
       count = count + #orig
       if idx + #input > x:size(1) then
@@ -140,7 +144,7 @@ function get_data(state)
             break
       end 
       
-      if (i <= 2 * 10) then
+      if (i <= 2) then
         io.write("\tInput:\t")
         local orig = string.format("     %s", orig)
         orig = orig:gsub("#", "\n\t\t     ")
